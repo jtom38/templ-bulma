@@ -1,0 +1,13 @@
+package bulma
+
+templ Tag(message string) {
+	<span class={ "tag" }>{ message }</span>
+}
+
+templ TagColor(message, color string) {
+	<span class={ "tag", color }>{ message }</span>
+}
+
+templ TagColorSize(message, color, size string) {
+	<span class={ "tag", color, size }>{ message }</span>
+}

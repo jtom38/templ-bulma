@@ -1,0 +1,22 @@
+package bulma
+
+templ ArticleCardWithThumbnail(title, thumbnailUrl, url, datePosted, sourceName string) {
+	<div class="card">
+		<div class="card-image">
+			<figure class="is-4by3">
+				<img src={ thumbnailUrl }/>
+			</figure>
+		</div>
+		<div class="card-content">
+			<div class="media">
+				<div class="media-content">
+					<a href={ templ.SafeURL(url) }>{ title }</a>
+				</div>
+			</div>
+			<div class="content">
+				{ datePosted }<br/>
+				{ sourceName }
+			</div>
+		</div>
+	</div>
+}
