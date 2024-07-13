@@ -1,0 +1,26 @@
+package html
+
+templ Doctype() {
+	<!DOCTYPE html>
+}
+
+// Creates <html> that accepts children
+templ New(lang string) {
+	<html lang={ lang }>
+		{ children... }
+	</html>
+}
+
+// Creates <head> that accepts children
+templ NewHeader() {
+    <head>
+        { children... }
+    </head>
+}
+
+// Creates <body> that accepts children
+templ NewBody() {
+    <body>
+        { children... }
+    </body>
+}

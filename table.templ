@@ -1,0 +1,37 @@
+package bulma
+
+// Creates a <table> that accepts children
+templ Table(){
+    <table class="table">
+        { children... }
+    </table>
+}
+
+// Creates a <thead> that accepts children.
+templ TableHeader() {
+    <thead>{ children... }</thead>
+}
+
+// Creates a <tf> that accepts children.
+templ TableRow() {
+    <tr>{ children... }</tr>
+}
+
+// Creates a <th> and writes the given value
+templ TableHeaderData(value string) {
+    <th>{ value }</th>
+}
+
+// Creates a <th> that allows you to also add a tooltip value
+templ TableHeaderDataToolTip(value, tooltip string) {
+    <th><abbr title={ tooltip }>{ value }</abbr></th>
+}
+
+// Creates a <td> that accepts children.
+templ TableDataChildren() {
+    <td>{ children... }</td>
+}
+
+templ TableData(value string) {
+    <td>{ value }</td>
+}

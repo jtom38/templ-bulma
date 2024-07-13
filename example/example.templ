@@ -1,0 +1,19 @@
+package example
+
+import "github.com/jtom38/templ-bulma"
+import "github.com/jtom38/templ-bulma/html"
+import "github.com/jtom38/templ-bulma/layout"
+
+templ example() {
+	@html.Doctype()
+	@html.New("en"){
+		@html.NewHeader(){
+			@bulma.UseBulmaCdn()
+		}
+		@html.NewBody() {
+			@layout.Container(bulma.BreakpointDefault) {
+				{ children... }
+			}
+		}
+	}
+}

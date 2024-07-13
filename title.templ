@@ -1,0 +1,49 @@
+package bulma
+
+templ Title(message string) {
+	<h1 class="title">{ message }</h1>
+}
+
+templ Subitle(message string) {
+	<h2 class="subtitle">{ message }</h2>
+}
+
+templ H1(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h1 class="subtitle is-1">{ message }</h1>
+	} else {
+		<h1 class="title is-1">{ message }</h1>
+	}
+}
+
+templ H2(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h2 class="subtitle is-2">{ message }</h2>
+	} else {
+		<h2 class="title is-2">{ message }</h2>
+	}
+}
+
+templ H3(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h3 class="subtitle is-3">{ message }</h3>
+	} else {
+		<h3 class="title is-3">{ message }</h3>
+	}
+}
+
+templ H4(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h4 class="subtitle is-4">{ message }</h4>
+	} else {
+		<h4 class="title is-4">{ message }</h4>
+	}
+}
+
+templ H5(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h5 class="subtitle is-5">{ message }</h5>
+	} else {
+		<h5 class="title is-5">{ message }</h5>
+	}
+}
