@@ -1,4 +1,10 @@
-package layout
+package bulma
+
+templ Container(breakpoint string) {
+	<div class={ "container", breakpoint }>
+		{ children... }
+	</div>
+}
 
 templ Hero(title, subtitle string) {
 	<section class="hero">
@@ -33,5 +39,13 @@ templ HeroColorSize(title, subtitle, color, size string) {
 			<p class="title">{ title }</p>
 			<p class="subtitle">{ subtitle }</p>
 		</div>
+	</section>
+}
+
+// Creates a <section> object thats good to break up a page of content.
+templ Section(title, subtitle string) {
+	<section class="section">
+		<h1 class="title">{ title }</h1>
+		<h2 class="subtitle">{ subtitle }</h2>
 	</section>
 }

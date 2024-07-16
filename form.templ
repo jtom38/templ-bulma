@@ -1,0 +1,97 @@
+package bulma
+
+const (
+	InputTypeText        = "text"
+	InputTypePassword    = "password"
+	InputTypeEmail       = "email"
+	InputTypePhoneNumber = "tel"
+)
+
+type NewFormParam struct {
+	HxPost string
+}
+
+templ NewForm(param NewFormParam) {
+	if param.HxPost != "" {
+		<form hx-post={ param.HxPost }>
+			{ children... }
+		</form>
+	}
+}
+
+templ FormTextInput(id, fieldType, placeholder string) {
+	<input class={ "input" } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
+}
+
+templ FormTextInputColor(color, id, fieldType, placeholder string) {
+	if color == "" {
+		<input class={ "input" } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
+	} else {
+		<input class={ "input", color } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
+	}
+}
+
+templ FormCheckbox(text, id string) {
+	<label class="checkbox">
+		<input type="checkbox" id={ id }/> { text }
+	</label>
+}
+
+// This will create a small bit of text to add context to the form.
+templ FormLabel(text string) {
+	<label class="label">{ text }</label>
+}
+
+templ FormSelectOne(color string, isRound bool) {
+	if isRound {
+		<div class="select is-round">
+			<select>
+				{ children... }
+			</select>
+		</div>
+	} else {
+		<div class="select">
+			<select>
+				{ children... }
+			</select>
+		</div>
+	}
+}
+
+templ FormSelectOneItem(name string) {
+	<option>{ name }</option>
+}
+
+templ FormSelectMany(howManySelectable int, color string, isRound bool) {
+	<div class="select is-multiple">
+		<select multiple size="{ howManySelectable }">
+			{ children... }
+		</select>
+	</div>
+}
+
+templ FormSelectManyItem(name string) {
+	<option value={ name }>{ name }</option>
+}
+
+// This creates a field that you can add a Label, Control or Input object.
+templ FormField() {
+	<div class="field">
+		{ children... }
+	</div>
+}
+
+// Div container to add a input field to.
+templ FormControl() {
+    <div class="control">
+        { children... }
+    </div>
+}
+
+templ FormSubmit(text, color string) {
+    <button type="submit" class={ "button", color }>{ text }</button>
+}
+
+templ FormTextArea(id, placeholder, color string) {
+    <textarea class={ "textarea", color } id={ id } placeholder={ placeholder }/>
+}
