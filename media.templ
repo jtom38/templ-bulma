@@ -1,0 +1,58 @@
+package bulma
+
+import "git.jamestombleson.com/jtom38/newsbot-portal/templ-bulma/html"
+
+templ exampleMedia() {
+	@NewMedia() {
+		@MediaImage(ImageIs128x128, "www", true, false)
+		@MediaContent() {
+            @html.P(){
+			    This is just a 
+                @html.Strong("simple") 
+                @html.Small("test")
+                @html.Br()
+            }
+		}
+	}
+}
+
+templ NewMedia() {
+	<article class="media">
+		{ children... }
+	</article>
+}
+
+templ MediaLeft() {
+	<div class="media-left">
+		{ children... }
+	</div>
+}
+
+templ MediaRight() {
+	<div class="media-right">
+		{ children... }
+	</div>
+}
+
+templ MediaImage(image, url string, isLeft, isRight bool) {
+	if isLeft {
+		<figure class="media-left">
+			<p class={ "image", image }>
+				<img src={ url }/>
+			</p>
+		</figure>
+	}
+    if isRight {
+        <figure class="media-right">
+			<p class={ "image", image }>
+				<img src={ url }/>
+			</p>
+		</figure>
+    }
+}
+
+templ MediaContent() {
+	<div class="media-content">
+		{ children... }
+	</div>
+}

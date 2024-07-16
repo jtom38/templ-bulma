@@ -24,3 +24,38 @@ templ NewBody() {
         { children... }
     </body>
 }
+
+templ Img(src string) {
+    <img src={ src } />
+}
+
+templ ImgAlt(src, alt string) {
+    <img src={ src } alt={ alt }/>
+}
+
+// Creates a section of text wrapped in <strong>
+templ Strong(text string) {
+    <strong>{ text }</strong>
+}
+
+templ Small(text string) {
+    <small>{ text }</small>
+}
+
+templ Br(){
+    <br/>
+}
+
+templ P() {
+    <p>
+        { children... }
+    </p>
+}
+
+templ ALink(url, title string) {
+	<a href={ templ.SafeURL(url) }>{ title }</a>
+}
+
+templ ANewTab(url, text string) {
+	<a href={ templ.SafeURL(url) } target="_blank" rel="noopener noreferrer">{ text }</a>
+}

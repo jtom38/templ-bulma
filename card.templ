@@ -1,6 +1,18 @@
 package bulma
 
+import "git.jamestombleson.com/jtom38/newsbot-portal/templ-bulma/html"
+
 templ ArticleCardWithThumbnail(title, thumbnailUrl, url, datePosted, sourceName string) {
+	@Card(){
+		@CardImage(){
+			@Image("is-4by3") {
+				@html.Img(thumbnailUrl)
+			}
+		}
+		@CardContentContainer() {
+			
+		}
+	}
 	<div class="card">
 		<div class="card-image">
 			<figure class="is-4by3">
@@ -18,5 +30,34 @@ templ ArticleCardWithThumbnail(title, thumbnailUrl, url, datePosted, sourceName 
 				{ sourceName }
 			</div>
 		</div>
+	</div>
+}
+
+	// Creates a card container.
+// Accepts children
+templ Card() {
+	<div class="card">
+		{ children... }
+	</div>
+}
+
+// Creates a image card container.
+// Accepts children
+templ CardImage() {
+	<div class="card-image">
+		{ children... }
+	</div>
+}
+
+//
+templ CardImageSize(size string) {
+	<figure class={ "image", size }>
+		{ children... }
+	</figure>
+}
+
+templ CardContentContainer() {
+	<div class="card-content">
+		{ children... }
 	</div>
 }

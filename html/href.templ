@@ -1,9 +1,0 @@
-package html
-
-templ ALink(url, title string) {
-	<a href={ templ.SafeURL(url) }>{ title }</a>
-}
-
-templ ANewTab(url, text string) {
-	<a href={ templ.SafeURL(url) } target="_blank" rel="noopener noreferrer">{ text }</a>
-}
