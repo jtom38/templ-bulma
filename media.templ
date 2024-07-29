@@ -1,21 +1,6 @@
 package bulma
 
-import "git.jamestombleson.com/jtom38/newsbot-portal/templ-bulma/html"
-
-templ exampleMedia() {
-	@NewMedia() {
-		@MediaImage(ImageIs128x128, "www", true, false)
-		@MediaContent() {
-            @html.P(){
-			    This is just a 
-                @html.Strong("simple") 
-                @html.Small("test")
-                @html.Br()
-            }
-		}
-	}
-}
-
+// Creats a new base object of a Media object
 templ NewMedia() {
 	<article class="media">
 		{ children... }
