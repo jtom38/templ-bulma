@@ -23,6 +23,10 @@ templ FormTextInput(id, fieldType, placeholder string) {
 	<input class={ "input" } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
 }
 
+templ FormTextInputWithValue(id, fieldType, value string) {
+	<input class={ "input" } name={ id } id={ id } type={ fieldType } value={ value }/>
+}
+
 templ FormTextInputColor(color, id, fieldType, placeholder string) {
 	if color == "" {
 		<input class={ "input" } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
@@ -42,16 +46,32 @@ templ FormLabel(text string) {
 	<label class="label">{ text }</label>
 }
 
-templ FormSelectOne(color string, isRound bool) {
+templ FormSelectOne(id string, isRound bool) {
 	if isRound {
 		<div class="select is-round">
-			<select>
+			<select id={ id } name={ id }>
 				{ children... }
 			</select>
 		</div>
 	} else {
 		<div class="select">
-			<select>
+			<select id={ id } name={ id }>
+				{ children... }
+			</select>
+		</div>
+	}
+}
+
+templ FormSelectOneColor(color, id string, isRound bool) {
+	if isRound {
+		<div class={ "select is-round", color }>
+			<select id={ id } name={ id }>
+				{ children... }
+			</select>
+		</div>
+	} else {
+		<div class={ "select", color }>
+			<select id={ id } name={ id }>
 				{ children... }
 			</select>
 		</div>
@@ -59,11 +79,19 @@ templ FormSelectOne(color string, isRound bool) {
 }
 
 templ FormSelectOneItem(name string) {
-	<option>{ name }</option>
+	<option value={ name }>{ name }</option>
 }
 
-templ FormSelectMany(howManySelectable int, color string, isRound bool) {
-	<div class="select is-multiple">
+templ FormSelectMany(howManySelectable int, id string, isRound bool) {
+	<div class="select is-multiple" id={ id }>
+		<select multiple size="{ howManySelectable }">
+			{ children... }
+		</select>
+	</div>
+}
+
+templ FormSelectManyColor(howManySelectable int, color, id string, isRound bool) {
+	<div class={ "select is-multiple", color } id={ id }>
 		<select multiple size="{ howManySelectable }">
 			{ children... }
 		</select>
@@ -83,15 +111,15 @@ templ FormField() {
 
 // Div container to add a input field to.
 templ FormControl() {
-    <div class="control">
-        { children... }
-    </div>
+	<div class="control">
+		{ children... }
+	</div>
 }
 
 templ FormSubmit(text, color string) {
-    <button type="submit" class={ "button", color }>{ text }</button>
+	<button type="submit" class={ "button", color }>{ text }</button>
 }
 
 templ FormTextArea(id, placeholder, color string) {
-    <textarea class={ "textarea", color } id={ id } placeholder={ placeholder }/>
+	<textarea class={ "textarea", color } id={ id } placeholder={ placeholder }></textarea>
 }
