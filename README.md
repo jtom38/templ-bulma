@@ -1,5 +1,10 @@
 # templ-bulma
 
+## Status: Unstable
+
+Feel free to use this as is, but somethings still might move around as I continue to improve the project.
+Please wait for the first release.
+
 ## Why
 
 I wanted add building blocks for templ so I had to look at less html and more Go code.
@@ -31,7 +36,7 @@ I attempted to then generate the templates and upload them, did not work.
 Go was not able to find the files I was hoping for.
 
 Uploading compiled templates would also require that you keep your templ version locked to what this project uses.
-That is not a good thing at all.
+That does not work for me at all.
 As new versions come out you should be able to use the newest version reguardless of your templates.
 
 When you run `templ generate` its only looking at templ files with in your project/directory.
