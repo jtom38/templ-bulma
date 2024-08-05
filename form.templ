@@ -46,6 +46,48 @@ templ FormLabel(text string) {
 	<label class="label">{ text }</label>
 }
 
+// This is a helper to create the following object for you.
+//
+// @bulma.FormField() {
+// 	@bulma.FormLabel(label)
+// 	@bulma.FormControl() {
+// 		@bulma.FormTextInput(id, bulma.InputTypeText, placeholder)
+// 	}
+// }
+templ FormLabelTextInput(id, label, placeholder string) {
+	@FormField() {
+		@FormLabel(label)
+		@FormControl() {
+			@FormTextInput(id, InputTypeText, placeholder)
+		}
+	}
+}
+
+// This is a helper that creates the following object for you. 
+//
+// Accepts Children
+//
+//  @bulma.FormField() {
+//	@bulma.FormLabel("Type")
+//	@bulma.FormControl() {
+//		@bulma.FormSelectOne("type", false) {
+//			@bulma.FormSelectOneItem("Playlist")
+//			@bulma.FormSelectOneItem("Artist")
+//			@bulma.FormSelectOneItem("Album")
+//		}
+//	}
+//}
+templ FormLabelSelectOne(label, id string) {
+	@FormField() {
+		@FormLabel("Type")
+		@FormControl() {
+			@FormSelectOne("type", false) {
+				{ children... }
+			}
+		}
+	}
+}
+
 templ FormSelectOne(id string, isRound bool) {
 	if isRound {
 		<div class="select is-round">

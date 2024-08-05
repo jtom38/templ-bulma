@@ -1,0 +1,218 @@
+package bulma
+
+// Bulma’s most basic spacer block.
+// Accepts Children
+//
+// https://bulma.io/documentation/elements/block/
+templ Block() {
+	<div class="block">
+		{ children... }
+	</div>
+}
+
+// A white box to contain other elements
+// Accepts Children
+//
+// https://bulma.io/documentation/elements/box/
+templ Box() {
+	<div class="box">
+		{ children... }
+	</div>
+}
+
+// This creates a button that accepts children under it.
+// Accepts Children
+//
+// https://bulma.io/documentation/elements/button/
+templ Button() {
+	<button type="button" class={ "button" }>
+		{ children... }
+	</button>
+}
+
+// Used to create a button and lets you define the color.
+// Accepts children.
+templ ButtonColor(color string) {
+	<button type="button" class={ "button", color }>
+		{ children... }
+	</button>
+}
+
+// Helper Button that will add a ahref link that opens a new tab.
+templ ButtonNewTab(url, text string) {
+	<button type="button" class="button">
+		<a href={ templ.SafeURL(url) } target="_blank" rel="noopener noreferrer">{ text }</a>
+	</button>
+}
+
+// https://bulma.io/documentation/elements/content/
+templ Content() {
+	<div class="content">
+		{ children... }
+	</div>
+}
+
+// https://bulma.io/documentation/elements/delete/
+templ Delete(size string) {
+	<button class={ "delete", size }></button>
+}
+
+// https://bulma.io/documentation/elements/icon/
+//
+// https://fontawesome.com/icons
+templ Icon(fa5 string) {
+}
+
+// https://bulma.io/documentation/elements/icon/
+//
+// https://fontawesome.com/icons
+templ IconText(fa5, text string) {
+	<span class="icon-text">
+		<span class="icon">
+			<i class={ "fas", fa5 }></i>
+		</span>
+		<span>{ text }</span>
+	</span>
+}
+
+// Creates a image wrapper.
+// This accepts children.
+// Use html.Img() to load a image as a child
+//
+// https://bulma.io/documentation/elements/image/
+templ Image(image string) {
+	<figure class={ "image", image }>
+		{ children... }
+	</figure>
+}
+
+// Creates an image object that defines the image under it.
+// https://bulma.io/documentation/elements/image/
+templ ImageSrc(image, src, alt string) {
+	@Image(image) {
+		<img src={ src } alt={ alt }/>
+	}
+}
+
+// https://bulma.io/documentation/elements/notification/
+templ Notification(message, color string) {
+	<div class={ "notification", color }>
+		{ message }
+	</div>
+}
+
+// https://bulma.io/documentation/elements/progress/
+templ ProgressBar(color, value, max string) {
+	<progress class={ "progress", color } value={ value } max={ max }>
+		{ value }%
+	</progress>
+}
+
+// Creates a <table> that accepts children
+//
+// https://bulma.io/documentation/elements/table/
+templ Table() {
+	<table class="table">
+		{ children... }
+	</table>
+}
+
+// Creates a <thead> that accepts children.
+templ TableHeader() {
+	<thead>{ children... }
+</thead>
+}
+
+// Creates a <tf> that accepts children.
+templ TableRow() {
+	<tr>{ children... }
+</tr>
+}
+
+// Creates a <th> and writes the given value
+templ TableHeaderData(value string) {
+	<th>{ value }</th>
+}
+
+// Creates a <th> that allows you to also add a tooltip value
+templ TableHeaderDataToolTip(value, tooltip string) {
+	<th><abbr title={ tooltip }>{ value }</abbr></th>
+}
+
+// Creates a <td> that accepts children.
+templ TableDataChildren() {
+	<td>{ children... }
+</td>
+}
+
+templ TableData(value string) {
+	<td>{ value }</td>
+}
+
+// https://bulma.io/documentation/elements/tag/
+templ Tag(message string) {
+	<span class={ "tag" }>{ message }</span>
+}
+
+templ TagColor(message, color string) {
+	<span class={ "tag", color }>{ message }</span>
+}
+
+templ TagColorSize(message, color, size string) {
+	<span class={ "tag", color, size }>{ message }</span>
+}
+
+// https://bulma.io/documentation/elements/title/
+templ Title(message string) {
+	<h1 class="title">{ message }</h1>
+}
+
+// https://bulma.io/documentation/elements/title/
+templ Subitle(message string) {
+	<h2 class="subtitle">{ message }</h2>
+}
+
+// https://bulma.io/documentation/elements/title/
+templ H1(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h1 class="subtitle is-1">{ message }</h1>
+	} else {
+		<h1 class="title is-1">{ message }</h1>
+	}
+}
+
+// https://bulma.io/documentation/elements/title/
+templ H2(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h2 class="subtitle is-2">{ message }</h2>
+	} else {
+		<h2 class="title is-2">{ message }</h2>
+	}
+}
+
+// https://bulma.io/documentation/elements/title/
+templ H3(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h3 class="subtitle is-3">{ message }</h3>
+	} else {
+		<h3 class="title is-3">{ message }</h3>
+	}
+}
+
+// https://bulma.io/documentation/elements/title/
+templ H4(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h4 class="subtitle is-4">{ message }</h4>
+	} else {
+		<h4 class="title is-4">{ message }</h4>
+	}
+}
+
+// https://bulma.io/documentation/elements/title/
+templ H5(message string, isSubtitle bool) {
+	if isSubtitle {
+		<h5 class="subtitle is-5">{ message }</h5>
+	} else {
+		<h5 class="title is-5">{ message }</h5>
+	}
+}

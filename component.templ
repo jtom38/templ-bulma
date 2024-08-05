@@ -1,0 +1,363 @@
+package bulma
+
+import "github.com/jtom38/templ-bulma/html"
+
+//#region Breadcrumb
+// https://bulma.io/documentation/components/breadcrumb/
+templ Breadcrumb(alignment, separator, size string) {
+	<nav class={ "breadcrumb", alignment, separator, size } aria-label="breadcrumbs">
+		<ul>
+			{ children... }
+			<li><a href="#">Bulma</a></li>
+			<li><a href="#">Documentation</a></li>
+			<li><a href="#">Components</a></li>
+			<li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+		</ul>
+	</nav>
+}
+
+templ BreadcrumbPrevious(url, text string) {
+	<li>
+		@html.ALink(url, text)
+	</li>
+}
+
+// https://bulma.io/documentation/components/breadcrumb/
+templ BreadcrumbPreviousIcon(url, text, faIcon string) {
+	<li>
+		<a href={ templ.SafeURL(url) }>
+			@IconText(faIcon, text)
+		</a>
+	</li>
+}
+
+// https://bulma.io/documentation/components/breadcrumb/
+templ BreadcrumbActive(url, text string) {
+	<li class="is-active">
+		<a href={ templ.SafeURL(url) } aria-current="page">{ text }</a>
+	</li>
+}
+
+// https://bulma.io/documentation/components/breadcrumb/
+templ BreadcrumbActiveIcon(url, text, faIcon string) {
+	<li class="is-active">
+		<a href={ templ.SafeURL(url) } aria-current="page">
+			@IconText(faIcon, text)
+		</a>
+	</li>
+}
+
+templ ExampleBreadcrumb() {
+	@Breadcrumb(AlignmentLeft, SeparatorDefault, SizeDefault) {
+		@BreadcrumbPrevious("/", "Index")
+		@BreadcrumbPrevious("/config", "Config")
+		@BreadcrumbActive("/config/secrets", "Secrets")
+	}
+}
+
+//#endregion
+
+//#region Card
+// Creates a card container.
+// Accepts children
+//
+// https://bulma.io/documentation/components/card/
+templ Card() {
+	<div class="card">
+		{ children... }
+	</div>
+}
+
+// Creates a image card container.
+// Accepts children
+templ CardImage(imageSize, src, alt string) {
+	<div class="card-image">
+		<figure class={ "image", imageSize }>
+			<img src={ src } alt={ alt }/>
+		</figure>
+	</div>
+}
+
+templ CardHeader(title string) {
+	<header class="card-header">
+		<p class="card-header-title">{ title }</p>
+		{ children... }
+	</header>
+}
+
+templ CardContentContainer() {
+	<div class="card-content">
+		{ children... }
+	</div>
+}
+
+templ ExampleCard() {
+	@Card() {
+		@CardHeader("Example Card")
+		@CardImage(ImageIs128x128, "https://...", "A Picture")
+		@CardContentContainer() {
+			@Media() {
+				@MediaLeft() {
+					@ImageSrc(ImageIs128x128, "https://...", "Its a picture")
+				}
+				@Title("Ryan Renolds")
+				@Subitle("@therealdeadpool")
+				@MediaContent() {
+					@Content() {
+						"What?  Did you expect something useful?"
+					}
+				}
+			}
+		}
+	}
+}
+
+//#endregion
+
+//#region Dropdown
+// Creates a dropdown menu.
+//
+// https://bulma.io/documentation/components/dropdown/
+templ Dropdown() {
+	<div class="dropdown">
+		{ children... }
+	</div>
+}
+
+// Controls needs to match up with the same controls in the DropdownMenu() so it works together
+//
+// https://bulma.io/documentation/components/dropdown/
+templ DropdownTrigger(text, controls string) {
+	<div class="dropdown-trigger">
+		<button class="button" aria-haspopup="true" aria-controls={ controls }>
+			<span>{ text }</span>
+			<span class="icon is-small">
+				<i class="fas fa-angle-down" aria-hidden="true"></i>
+			</span>
+		</button>
+	</div>
+}
+
+// Accepts Children
+//
+// https://bulma.io/documentation/components/dropdown/
+templ DropdownMenu(controls string) {
+	<div class="dropdown-menu" id={ controls } role="menu">
+		<div class="dropdown-content">
+			<a href="#" class="dropdown-item">Dropdown item </a>
+			<a class="dropdown-item">Other dropdown item </a>
+			<a href="#" class="dropdown-item is-active">Active dropdown item </a>
+			<a href="#" class="dropdown-item">Other dropdown item </a>
+			<hr class="dropdown-divider"/>
+			<a href="#" class="dropdown-item">With a divider </a>
+		</div>
+	</div>
+}
+
+templ DropdownMenuLink(url, text string) {
+	<a href={ templ.SafeURL(url) } class="dropdown-item">{ text }</a>
+}
+
+templ DropdownMenuSeperator() {
+	<hr class="dropdown-divider"/>
+}
+
+templ ExampleDropdown() {
+	@Dropdown() {
+		@DropdownTrigger("demo-menu")
+		@DropdownMenu("demo-menu") {
+			@DropdownMenuLink("https://bulma.io", "Bulma CSS")
+			@DropdownMenuLink("https://github.com/a-h/templ", "Templ")
+			@DropdownMenuSeperator()
+			@DropdownMenuLink("https://www.google.com", "Google")
+		}
+	}
+}
+
+//#endregion
+
+//#region Menu
+// Accepts Children
+//
+// https://bulma.io/documentation/components/menu/
+//
+//
+templ Menu() {
+	<aside class="menu">
+		{ children... }
+	</aside>
+}
+
+templ MenuLabel(text string) {
+	<p class="menu-label">{ text }</p>
+}
+
+templ MenuList() {
+	<ul class="menu-list">
+		{ children... }
+	</ul>
+}
+
+templ MenuListItem(url, title string) {
+	<li>
+		@html.ALink(url, title)
+	</li>
+}
+
+templ ExampleMenu() {
+	@Menu() {
+		@MenuLabel("CSS Frameworks")
+		@MenuList() {
+			@MenuListItem("https://bulma.io", "Bulma")
+		}
+		@MenuLabel("Github Links")
+		@MenuList() {
+			@MenuListItem("https://github.com/jtom38/templ-bulma", "templ-bulma")
+			@MenuListItem("https://github.com/a-h/templ", "templ")
+			@MenuListItem("#", "placeholder")
+		}
+	}
+}
+
+//#endregion
+
+//#region Message
+// Colored message blocks, to emphasize part of your page.
+//
+// Accepts Children
+//
+// https://bulma.io/documentation/components/message/
+templ Message(size, color string) {
+	<article class={ "message", size, color }></article>
+}
+
+// This is an optional item on the Message
+templ MessageHeader(text string) {
+	<div class="message-header">
+		<p>{ text }</p>
+		<!--
+		<button class="delete is-small" aria-label="delete"></button>
+        -->
+	</div>
+}
+
+//#endregion
+
+// Accepts Children
+//
+// Pass in the text with some basic html tags only.
+// Should support @bulma.Content() but its not validated at this time.
+templ MessageBody() {
+	<div class="message-body">
+		{ children... }
+	</div>
+}
+
+//#region Model
+templ Model() {
+	<div class="modal">
+		<div class="modal-background"></div>
+		{ children... }
+		<button class="modal-close" aria-label="close"></button>
+	</div>
+}
+
+// Accepts Children
+//
+// You can use any bulma object within a model
+templ ModelContent() {
+	<div class="modal-content">
+		{ children... }
+	</div>
+}
+
+//#endregion
+
+//#region Navbar
+// Accepts Children
+//
+// https://bulma.io/documentation/components/navbar/
+templ Navbar() {
+	<nav class="navbar" role="navigation" aria-label="main navigation">
+		{ children... }
+	</nav>
+}
+
+// On the left side, always visible, which usually contains the logo and optionally some links or icons
+//
+// Accepts Children
+templ NavbarBrand() {
+	<div class="navbar-brand">
+		{ children... }
+	</div>
+}
+
+templ NavbarItem(url, text string) {
+	<a class="navbar-item" href={ templ.SafeURL(url) }>{ text }</a>
+}
+
+// This is ideal if you want to use something like svg
+templ NavbarItemChildren(url string) {
+	<a class="navbar-item" href={ templ.SafeURL(url) }>
+		{ children... }
+	</a>
+}
+
+templ NavbarBrandBurger(dataTarget string) {
+	<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target={ dataTarget }>
+		<span aria-hidden="true"></span>
+		<span aria-hidden="true"></span>
+		<span aria-hidden="true"></span>
+		<span aria-hidden="true"></span>
+	</a>
+}
+
+templ NavbarMenu(dataTarget string) {
+	<div id={ dataTarget } class="navbar-menu">
+		{ children... }
+	</div>
+}
+
+templ NavbarStart() {
+	<div class="navbar-start">
+		<a class="navbar-item">Home</a>
+		<a class="navbar-item">Documentation </a>
+	</div>
+}
+
+templ NavbarItemDropdown(text string) {
+	<div class="navbar-item has-dropdown is-hoverable">
+		<a class="navbar-link">{ text }</a>
+		<div class="navbar-dropdown">
+			{ children... }
+		</div>
+	</div>
+}
+
+templ NavbarItemDropdownDivider() {
+	<hr class="navbar-divider"/>
+}
+
+// This is an example on how to setup a Navbar.
+// Don't use this in your project.
+templ NavbarExample() {
+	@Navbar() {
+		@NavbarBrand() {
+			@NavbarItem("/", "Home")
+			@NavbarBrandBurger("mainNavbarMenu")
+		}
+		@NavbarMenu("mainNavbarMenu") {
+			@NavbarItem("/", "Home")
+			@NavbarItem("/documentation", "Documentation")
+			@NavbarItemDropdown("More") {
+				@NavbarItem("/about", "About")
+				@NavbarItem("/jobs", "Jobs")
+				@NavbarItem("/contact", "Contact Us")
+				@NavbarItemDropdownDivider()
+				@NavbarItem("/issue", "Report an issue")
+			}
+		}
+	}
+}
+
+//#endregion
