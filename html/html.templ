@@ -13,43 +13,43 @@ templ New(lang string) {
 
 // Creates <head> that accepts children
 templ NewHeader() {
-    <head>
-        { children... }
-    </head>
+	<head>
+		{ children... }
+	</head>
 }
 
 // Creates <body> that accepts children
 templ NewBody() {
-    <body>
-        { children... }
-    </body>
+	<body>
+		{ children... }
+	</body>
 }
 
 templ Img(src string) {
-    <img src={ src } />
+	<img src={ src }/>
 }
 
 templ ImgAlt(src, alt string) {
-    <img src={ src } alt={ alt }/>
+	<img src={ src } alt={ alt }/>
 }
 
 // Creates a section of text wrapped in <strong>
 templ Strong(text string) {
-    <strong>{ text }</strong>
+	<strong>{ text }</strong>
 }
 
 templ Small(text string) {
-    <small>{ text }</small>
+	<small>{ text }</small>
 }
 
-templ Br(){
-    <br/>
+templ Br() {
+	<br/>
 }
 
 templ P() {
-    <p>
-        { children... }
-    </p>
+	<p>
+		{ children... }
+	</p>
 }
 
 templ ALink(url, title string) {
@@ -59,3 +59,11 @@ templ ALink(url, title string) {
 templ ANewTab(url, text string) {
 	<a href={ templ.SafeURL(url) } target="_blank" rel="noopener noreferrer">{ text }</a>
 }
+
+// Not sure if I want to add a SVG wrapper just yet.
+//templ Svg() {
+//	<svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+//		<path fill-rule="evenodd" clip-rule="evenodd" d="" fill="black" class="bd-svg-black"></path>
+//		<path fill-rule="evenodd" clip-rule="evenodd" d="M0 110L10 40L50 0L100 50L70 80L110 120L50 160L0 110Z" fill="#00D1B2"></path>
+//	</svg>
+//}
