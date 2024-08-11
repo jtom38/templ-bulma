@@ -11,12 +11,24 @@ const (
 	BreakpointMaxDesktop    = "is-max-desktop"
 	BreakpointMaxWidescreen = "is-max-widescreen"
 
+	ColorDefault = ""
 	ColorPrimary = "is-primary"
 	ColorInfo    = "is-info"
 	ColorLink    = "is-link"
 	ColorWarning = "is-warning"
 	ColorSuccess = "is-success"
-	ColorError   = "is-error"
+	ColorDanger  = "is-danger"
+
+	ColumnSizeDefault         = ""
+	ColumnSizeIsThreeQuarters = "is-three-quarters"
+	ColumnSizeIsTwoThirds     = "is-two-thirds"
+	ColumnSizeIsHalf          = "is-half"
+	ColumnSizeIsOneThird      = "is-one-third"
+	ColumnSizeIsOneQuarter    = "is-one-quarter"
+	ColumnSizeIsFull          = "is-full"
+	ColumnOffsetDefault       = ""
+	ColumnOffsetOneQuarter    = "is-offset-one-quarter"
+	ColumnOffsetOneFifth      = "is-offset-one-fifth"
 
 	ImageIs16x16   = "is-16x16"
 	ImageIs24x24   = "is-24x24"
@@ -33,7 +45,13 @@ const (
 	SeparatorSucceeds = "has-succeeds-separator"
 
 	SizeDefault = ""
+	SizeSmall   = "is-small"
 	SizeNormal  = "is-normal"
 	SizeMedium  = "is-medium"
 	SizeLarge   = "is-large"
+
+	StyleDefault       = ""
+	StyleBoxed         = "is-boxed"
+	StyleToggle        = "is-toggle"
+	StyleToggleRounded = "is-toggle is-toggle-rounded"
 )

@@ -1,0 +1,14 @@
+package bulma
+
+// Creates a Column container
+templ NewColumns() {
+	<div class="columns">
+		{ children... }
+	</div>
+}
+
+templ Column(columnSize string) {
+	<div class={ "column", columnSize }>
+        { children... }
+	</div>
+}

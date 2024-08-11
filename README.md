@@ -26,5 +26,4 @@ Right now the form allows you to use a `hx-post` from the struct params that can
 
 ## Closing
 
-If you find this helpful, leave a ⭐️!
-If you find any issues or improvement, please create a PR.
+If you find this helpful, leave a ⭐️ and if you find any issues or improvement, please create a PR.
