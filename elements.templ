@@ -24,23 +24,15 @@ templ Box() {
 // Accepts Children
 //
 // https://bulma.io/documentation/elements/button/
-templ Button() {
-	<button type="button" class={ "button" }>
-		{ children... }
-	</button>
-}
-
-// Used to create a button and lets you define the color.
-// Accepts children.
-templ ButtonColor(color string) {
-	<button type="button" class={ "button", color }>
+templ Button(color, size string) {
+	<button type="button" class={ "button", color, size }>
 		{ children... }
 	</button>
 }
 
 // Helper Button that will add a ahref link that opens a new tab.
-templ ButtonNewTab(url, text string) {
-	<button type="button" class="button">
+templ ButtonNewTab(url, text, color, size string) {
+	<button type="button" class={ "button", color, size }>
 		<a href={ templ.SafeURL(url) } target="_blank" rel="noopener noreferrer">{ text }</a>
 	</button>
 }
@@ -60,16 +52,21 @@ templ Delete(size string) {
 // https://bulma.io/documentation/elements/icon/
 //
 // https://fontawesome.com/icons
-templ Icon(fa5 string) {
+templ Icon(fontAwesomeIcon string) {
+	<span class="icon-text">
+		<span class="icon">
+			<i class={ "fas", fontAwesomeIcon }></i>
+		</span>
+	</span>
 }
 
 // https://bulma.io/documentation/elements/icon/
 //
 // https://fontawesome.com/icons
-templ IconText(fa5, text string) {
+templ IconText(fontAwesomeIcon, text string) {
 	<span class="icon-text">
 		<span class="icon">
-			<i class={ "fas", fa5 }></i>
+			<i class={ "fas", fontAwesomeIcon }></i>
 		</span>
 		<span>{ text }</span>
 	</span>
@@ -119,14 +116,16 @@ templ Table() {
 
 // Creates a <thead> that accepts children.
 templ TableHeader() {
-	<thead>{ children... }
-</thead>
+	<thead>
+		{ children... }
+	</thead>
 }
 
 // Creates a <tf> that accepts children.
 templ TableRow() {
-	<tr>{ children... }
-</tr>
+	<tr>
+		{ children... }
+	</tr>
 }
 
 // Creates a <th> and writes the given value
@@ -141,8 +140,9 @@ templ TableHeaderDataToolTip(value, tooltip string) {
 
 // Creates a <td> that accepts children.
 templ TableDataChildren() {
-	<td>{ children... }
-</td>
+	<td>
+		{ children... }
+	</td>
 }
 
 templ TableData(value string) {
