@@ -4,7 +4,7 @@ import "github.com/jtom38/templ-bulma/html"
 
 //#region Breadcrumb
 // https://bulma.io/documentation/components/breadcrumb/
-templ Breadcrumb(alignment, separator, size string) {
+templ NewBreadcrumb(alignment, separator, size string) {
 	<nav class={ "breadcrumb", alignment, separator, size } aria-label="breadcrumbs">
 		<ul>
 			{ children... }
@@ -48,7 +48,7 @@ templ BreadcrumbActiveIcon(url, text, faIcon string) {
 }
 
 templ ExampleBreadcrumb() {
-	@Breadcrumb(AlignmentLeft, SeparatorDefault, SizeDefault) {
+	@NewBreadcrumb(AlignmentLeft, SeparatorDefault, SizeDefault) {
 		@BreadcrumbPrevious("/", "Index")
 		@BreadcrumbPrevious("/config", "Config")
 		@BreadcrumbActive("/config/secrets", "Secrets")
@@ -58,11 +58,12 @@ templ ExampleBreadcrumb() {
 //#endregion
 
 //#region Card
+
 // Creates a card container.
 // Accepts children
 //
 // https://bulma.io/documentation/components/card/
-templ Card() {
+templ NewCard() {
 	<div class="card">
 		{ children... }
 	</div>
@@ -78,6 +79,7 @@ templ CardImage(imageSize, src, alt string) {
 	</div>
 }
 
+// Creates a basic header for a Card that just has text
 templ CardHeader(title string) {
 	<header class="card-header">
 		<p class="card-header-title">{ title }</p>
@@ -85,17 +87,46 @@ templ CardHeader(title string) {
 	</header>
 }
 
-templ CardContentContainer() {
+// This is used to create a header within a card.
+// Use this version if you want to have an icon added.
+templ CardHeaderIcon(title string) {
+	<header class="card-header">
+		<p class="card-header-title">{ title }</p>
+		<button class="card-header-icon" aria-label="more options">
+			<span class="icon">
+				<i class="fas fa-angle-down" aria-hidden="true"></i>
+			</span>
+		</button>
+	</header>
+}
+
+// a multi-purpose container for any other element
+//
+// Accepts Children
+templ CardContent() {
 	<div class="card-content">
 		{ children... }
 	</div>
 }
 
+// a horizontal list of controls
+//
+// Accepts Children
+templ CardFooter() {
+	<footer class="card-footer">
+		{ children... }
+	</footer>
+}
+
+templ CardFooterItem(url, text string) {
+	<a href={ templ.SafeURL(url) } class="card-footer-item">{ text }</a>
+}
+
 templ ExampleCard() {
-	@Card() {
-		@CardHeader("Example Card")
+	@NewCard() {
+		@CardHeaderIcon("Example Card")
 		@CardImage(ImageIs128x128, "https://...", "A Picture")
-		@CardContentContainer() {
+		@CardContent() {
 			@Media() {
 				@MediaLeft() {
 					@ImageSrc(ImageIs128x128, "https://...", "Its a picture")
@@ -109,16 +140,22 @@ templ ExampleCard() {
 				}
 			}
 		}
+		@CardFooter() {
+			@CardFooterItem("/article/1234/edit", "Edit")
+			@CardFooterItem("/article/1234/save", "Save")
+			@CardFooterItem("/article/1234/delete", "Delete")
+		}
 	}
 }
 
 //#endregion
 
 //#region Dropdown
+
 // Creates a dropdown menu.
 //
 // https://bulma.io/documentation/components/dropdown/
-templ Dropdown() {
+templ NewDropdown() {
 	<div class="dropdown">
 		{ children... }
 	</div>
@@ -163,8 +200,8 @@ templ DropdownMenuSeperator() {
 }
 
 templ ExampleDropdown() {
-	@Dropdown() {
-		@DropdownTrigger("demo-menu")
+	@NewDropdown() {
+		@DropdownTrigger("Demo", "demo-menu")
 		@DropdownMenu("demo-menu") {
 			@DropdownMenuLink("https://bulma.io", "Bulma CSS")
 			@DropdownMenuLink("https://github.com/a-h/templ", "Templ")
@@ -177,12 +214,11 @@ templ ExampleDropdown() {
 //#endregion
 
 //#region Menu
+
 // Accepts Children
 //
 // https://bulma.io/documentation/components/menu/
-//
-//
-templ Menu() {
+templ NewMenu() {
 	<aside class="menu">
 		{ children... }
 	</aside>
@@ -205,7 +241,7 @@ templ MenuListItem(url, title string) {
 }
 
 templ ExampleMenu() {
-	@Menu() {
+	@NewMenu() {
 		@MenuLabel("CSS Frameworks")
 		@MenuList() {
 			@MenuListItem("https://bulma.io", "Bulma")
@@ -222,17 +258,18 @@ templ ExampleMenu() {
 //#endregion
 
 //#region Message
+
 // Colored message blocks, to emphasize part of your page.
 //
 // Accepts Children
 //
 // https://bulma.io/documentation/components/message/
-templ Message(size, color string) {
+templ NewMessage(size, color string) {
 	<article class={ "message", size, color }></article>
 }
 
 // This is an optional item on the Message
-templ MessageHeader(text string) {
+templ MessageWithHeader(text string) {
 	<div class="message-header">
 		<p>{ text }</p>
 		<!--
@@ -240,8 +277,6 @@ templ MessageHeader(text string) {
         -->
 	</div>
 }
-
-//#endregion
 
 // Accepts Children
 //
@@ -253,8 +288,15 @@ templ MessageBody() {
 	</div>
 }
 
+//#endregion
+
 //#region Model
-templ Model() {
+
+// Creates a new model object.
+// To use this correctly see bulma.RequiredModelScript()
+//
+// https://bulma.io/documentation/components/modal/
+templ NewModel() {
 	<div class="modal">
 		<div class="modal-background"></div>
 		{ children... }
@@ -277,7 +319,7 @@ templ ModelContent() {
 // Accepts Children
 //
 // https://bulma.io/documentation/components/navbar/
-templ Navbar() {
+templ NewNavbar() {
 	<nav class="navbar" role="navigation" aria-label="main navigation">
 		{ children... }
 	</nav>
@@ -341,7 +383,7 @@ templ NavbarItemDropdownDivider() {
 // This is an example on how to setup a Navbar.
 // Don't use this in your project.
 templ NavbarExample() {
-	@Navbar() {
+	@NewNavbar() {
 		@NavbarBrand() {
 			@NavbarItem("/", "Home")
 			@NavbarBrandBurger("mainNavbarMenu")
@@ -357,6 +399,237 @@ templ NavbarExample() {
 				@NavbarItem("/issue", "Report an issue")
 			}
 		}
+	}
+}
+
+//#endregion
+
+//#region Pagination
+
+// https://bulma.io/documentation/components/pagination/
+templ NewPagination() {
+	<nav class="pagination" role="navigation" aria-label="pagination">
+		{ children... }
+	</nav>
+}
+
+templ PaginationPrevious(url, text string) {
+	<a href={ templ.SafeURL(url) } class="pagination-previous">{ text }</a>
+}
+
+templ PaginationNext(url, text string) {
+	<a href={ templ.SafeURL(url) } class="pagination-next">{ text }</a>
+}
+
+templ PaginationList() {
+	<ul class="pagination-list">
+		{ children... }
+	</ul>
+}
+
+templ PaginationListItem(url, text, ariaLabel string) {
+	<li>
+		<a href={ templ.SafeURL(url) } class="pagination-link" aria-label="Goto page 1">{ text }</a>
+	</li>
+}
+
+templ PaginationEllispsis() {
+	<li>
+		<span class="pagination-ellipsis">&hellip;</span>
+	</li>
+}
+
+templ PaginationActive(text, ariaLabel string) {
+	<li>
+		<a class="pagination-link is-current" aria-label={ ariaLabel } aria-current="page">{ text }</a>
+	</li>
+}
+
+templ PaginationExample() {
+	@NewPagination() {
+		@PaginationPrevious("/articles?page=10", "Previous")
+		@PaginationList() {
+			@PaginationListItem("/articles?page=1", "1", "Goto page 1")
+			@PaginationEllispsis()
+			@PaginationActive("11", "Page 11")
+			@PaginationEllispsis()
+			@PaginationListItem("/articles?page=100", "100", "Goto page 100")
+		}
+		@PaginationNext("/articles?page=12", "Next")
+	}
+}
+
+//#endregion
+
+//#region Panel
+templ NewPanel(color string) {
+	<nav class={ "panel", color }>
+		<p class="panel-heading">Repositories</p>
+		<div class="panel-block">
+			<p class="control has-icons-left">
+				<input class="input" type="text" placeholder="Search"/>
+				<span class="icon is-left">
+					<i class="fas fa-search" aria-hidden="true"></i>
+				</span>
+			</p>
+		</div>
+		<p class="panel-tabs">
+			<a class="is-active">All</a>
+			<a>Public</a>
+			<a>Private</a>
+			<a>Sources</a>
+			<a>Forks</a>
+		</p>
+		<a class="panel-block is-active">
+			<span class="panel-icon">
+				<i class="fas fa-book" aria-hidden="true"></i>
+			</span>
+			bulma
+		</a>
+		<a class="panel-block">
+			<span class="panel-icon">
+				<i class="fas fa-book" aria-hidden="true"></i>
+			</span>
+			marksheet
+		</a>
+		<a class="panel-block">
+			<span class="panel-icon">
+				<i class="fas fa-book" aria-hidden="true"></i>
+			</span>
+			minireset.css
+		</a>
+		<a class="panel-block">
+			<span class="panel-icon">
+				<i class="fas fa-book" aria-hidden="true"></i>
+			</span>
+			jgthms.github.io
+		</a>
+		<a class="panel-block">
+			<span class="panel-icon">
+				<i class="fas fa-code-branch" aria-hidden="true"></i>
+			</span>
+			daniellowtw/infboard
+		</a>
+		<a class="panel-block">
+			<span class="panel-icon">
+				<i class="fas fa-code-branch" aria-hidden="true"></i>
+			</span>
+			mojs
+		</a>
+		<label class="panel-block">
+			<input type="checkbox"/>
+			remember me
+		</label>
+		<div class="panel-block">
+			<button class="button is-link is-outlined is-fullwidth">
+				Reset all filters
+			</button>
+		</div>
+	</nav>
+}
+
+templ PanelHeader(text string) {
+	<p class="panel-heading">{ text }</p>
+}
+
+templ PanelHeaderIcon(text, faIcon string) {
+	<p class="panel-heading">{ text }</p>
+	<div class="panel-block">
+		<p class="control has-icons-left">
+			<input class="input" type="text" placeholder="Search"/>
+			<span class="icon is-left">
+				<i class={ "fas", faIcon } aria-hidden="true"></i>
+			</span>
+		</p>
+	</div>
+}
+
+// Accepts Children
+templ PanelTabs() {
+	<p class="panel-tabs">
+		{ children... }
+	</p>
+}
+
+templ PanelTabItem(url, text string) {
+	@html.ALink(url, text)
+}
+
+templ PanelTabItemActive(url, text string) {
+	<a href={ templ.SafeURL(url) } class="is-active">{ text }</a>
+}
+
+// Supports contain other elements, like control input, button, panel-icon
+templ PanelBlock(url, text, faIcon string, isActive bool) {
+	if isActive {
+		<a href={ templ.SafeURL(url) } class="panel-block is-active">
+			<span class="panel-icon">
+				<i class={ "fas", faIcon } aria-hidden="true"></i>
+			</span>
+			{ text }
+		</a>
+	} else {
+		<a href={ templ.SafeURL(url) } class="panel-block">
+			<span class="panel-icon">
+				<i class={ "fas", faIcon } aria-hidden="true"></i>
+			</span>
+			{ text }
+		</a>
+	}
+}
+
+//#endregion
+
+//#region Tabs
+
+// https://bulma.io/documentation/components/tabs/
+templ NewTab(alignment, size, style string, isFullWidth bool) {
+	if isFullWidth {
+		<div class={ "tabs", alignment, style }>
+			<ul>
+				{ children... }
+			</ul>
+		</div>
+	} else {
+		<div class={ "tabs", "is-fullwidth", alignment, style }>
+			<ul>
+				{ children... }
+			</ul>
+		</div>
+	}
+}
+
+templ TabLink(url, text, fontAwesomeIcon string, isActive bool) {
+	if isActive {
+		<li class="is-active">
+			<a href={ templ.SafeURL(url) }>{ text }</a>
+		</li>
+	} else {
+		<li>
+			<a href={ templ.SafeURL(url) }>{ text }</a>
+		</li>
+	}
+}
+
+templ TabLinkIcon(url, text, fontAwesomeIcon string, isActive bool) {
+	if isActive {
+		<li class="is-active">
+			<a href={ templ.SafeURL(url) }>
+				<span class="icon is-small">
+					<i class={ "fas", fontAwesomeIcon } aria-hidden="true"></i>
+				</span>
+				<span>{ text }</span>
+			</a>
+		</li>
+	} else {
+		<li>
+			<a href={ templ.SafeURL(url) }>
+				<span class="icon is-small">
+					<i class={ "fas", fontAwesomeIcon } aria-hidden="true"></i>
+				</span>
+				<span>{ text }</span>
+			</a>
+		</li>
 	}
 }
 
