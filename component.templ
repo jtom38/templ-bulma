@@ -8,10 +8,6 @@ templ NewBreadcrumb(alignment, separator, size string) {
 	<nav class={ "breadcrumb", alignment, separator, size } aria-label="breadcrumbs">
 		<ul>
 			{ children... }
-			<li><a href="#">Bulma</a></li>
-			<li><a href="#">Documentation</a></li>
-			<li><a href="#">Components</a></li>
-			<li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
 		</ul>
 	</nav>
 }
@@ -181,12 +177,7 @@ templ DropdownTrigger(text, controls string) {
 templ DropdownMenu(controls string) {
 	<div class="dropdown-menu" id={ controls } role="menu">
 		<div class="dropdown-content">
-			<a href="#" class="dropdown-item">Dropdown item </a>
-			<a class="dropdown-item">Other dropdown item </a>
-			<a href="#" class="dropdown-item is-active">Active dropdown item </a>
-			<a href="#" class="dropdown-item">Other dropdown item </a>
-			<hr class="dropdown-divider"/>
-			<a href="#" class="dropdown-item">With a divider </a>
+			{ children... }
 		</div>
 	</div>
 }
@@ -362,8 +353,7 @@ templ NavbarMenu(dataTarget string) {
 
 templ NavbarStart() {
 	<div class="navbar-start">
-		<a class="navbar-item">Home</a>
-		<a class="navbar-item">Documentation </a>
+		{ children... }
 	</div>
 }
 
@@ -464,67 +454,7 @@ templ PaginationExample() {
 //#region Panel
 templ NewPanel(color string) {
 	<nav class={ "panel", color }>
-		<p class="panel-heading">Repositories</p>
-		<div class="panel-block">
-			<p class="control has-icons-left">
-				<input class="input" type="text" placeholder="Search"/>
-				<span class="icon is-left">
-					<i class="fas fa-search" aria-hidden="true"></i>
-				</span>
-			</p>
-		</div>
-		<p class="panel-tabs">
-			<a class="is-active">All</a>
-			<a>Public</a>
-			<a>Private</a>
-			<a>Sources</a>
-			<a>Forks</a>
-		</p>
-		<a class="panel-block is-active">
-			<span class="panel-icon">
-				<i class="fas fa-book" aria-hidden="true"></i>
-			</span>
-			bulma
-		</a>
-		<a class="panel-block">
-			<span class="panel-icon">
-				<i class="fas fa-book" aria-hidden="true"></i>
-			</span>
-			marksheet
-		</a>
-		<a class="panel-block">
-			<span class="panel-icon">
-				<i class="fas fa-book" aria-hidden="true"></i>
-			</span>
-			minireset.css
-		</a>
-		<a class="panel-block">
-			<span class="panel-icon">
-				<i class="fas fa-book" aria-hidden="true"></i>
-			</span>
-			jgthms.github.io
-		</a>
-		<a class="panel-block">
-			<span class="panel-icon">
-				<i class="fas fa-code-branch" aria-hidden="true"></i>
-			</span>
-			daniellowtw/infboard
-		</a>
-		<a class="panel-block">
-			<span class="panel-icon">
-				<i class="fas fa-code-branch" aria-hidden="true"></i>
-			</span>
-			mojs
-		</a>
-		<label class="panel-block">
-			<input type="checkbox"/>
-			remember me
-		</label>
-		<div class="panel-block">
-			<button class="button is-link is-outlined is-fullwidth">
-				Reset all filters
-			</button>
-		</div>
+		{ children... }
 	</nav>
 }
 
