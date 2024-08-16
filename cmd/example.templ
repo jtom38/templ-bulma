@@ -14,86 +14,85 @@ templ Example() {
 			@v1.UseHtmxCdn()
 		}
 		@html.NewBody() {
-			@bulma.Container(bulma.BreakpointDefault) {
-				//@bulma.ButtonNewTab()
-				@bulma.Hero("templ-bulma", "Showing off how to use this package")
+			@bulma.NewContainer(bulma.BreakpointDefault) {
+				@bulma.Hero("templ-bulma", "Showing off how to use this package", bulma.SizeDefault, bulma.ColorDefault)
 				@bulma.H2("Elements", false)
-				@bulma.Block() {
+				@bulma.NewBlock() {
 					@bulma.H3("Block", false)
 					@bulma.ButtonNewTab("https://bulma.io/documentation/elements/block/", "Block Docs", bulma.ColorDefault, bulma.SizeDefault)
 					@bulma.H4("Preview", false)
 					This is written in a block!
 				}
-				@bulma.Block() {
+				@bulma.NewBlock() {
 					@bulma.H3("Box", false)
 					@bulma.ButtonNewTab("https://bulma.io/documentation/elements/box/", "Box Docs", bulma.ColorDefault, bulma.SizeDefault)
 					@bulma.H4("Preview", false)
-					@bulma.Box() {
+					@bulma.NewBox() {
 						This accepts children and places them here.
 						You can put almost anything in this.
 					}
 				}
-				@bulma.Block() {
+				@bulma.NewBlock() {
 					@bulma.H3("Buttons", false)
 					@bulma.ButtonNewTab("https://bulma.io/documentation/elements/button/", "Button Docs", bulma.ColorDefault, bulma.SizeDefault)
-					@bulma.Block() {
+					@bulma.NewBlock() {
 						@bulma.H4("Preview", false)
-						@bulma.Block() {
+						@bulma.NewBlock() {
 							Buttons can have different colors.
 							@html.Br()
-							@bulma.Button(bulma.ColorDefault, bulma.SizeDefault) {
+							@bulma.NewButton(bulma.ColorDefault, bulma.SizeDefault) {
 								Default
 							}
-							@bulma.Button(bulma.ColorInfo, bulma.SizeDefault) {
+							@bulma.NewButton(bulma.ColorInfo, bulma.SizeDefault) {
 								Info
 							}
-							@bulma.Button(bulma.ColorPrimary, bulma.SizeDefault) {
+							@bulma.NewButton(bulma.ColorPrimary, bulma.SizeDefault) {
 								Primary
 							}
-							@bulma.Button(bulma.ColorSuccess, bulma.SizeDefault) {
+							@bulma.NewButton(bulma.ColorSuccess, bulma.SizeDefault) {
 								Success!
 							}
-							@bulma.Button(bulma.ColorDanger, bulma.SizeDefault) {
+							@bulma.NewButton(bulma.ColorDanger, bulma.SizeDefault) {
 								Danger!
 							}
 						}
-						@bulma.Block() {
+						@bulma.NewBlock() {
 							You can also pick different sizes.
 							@html.Br()
-							@bulma.Button(bulma.ColorDefault, bulma.SizeSmall) {
+							@bulma.NewButton(bulma.ColorDefault, bulma.SizeSmall) {
 								Small
 							}
-							@bulma.Button(bulma.ColorDefault, bulma.SizeDefault) {
+							@bulma.NewButton(bulma.ColorDefault, bulma.SizeDefault) {
 								Default
 							}
-							@bulma.Button(bulma.ColorDefault, bulma.SizeMedium) {
+							@bulma.NewButton(bulma.ColorDefault, bulma.SizeMedium) {
 								Medium
 							}
-							@bulma.Button(bulma.ColorDefault, bulma.SizeLarge) {
+							@bulma.NewButton(bulma.ColorDefault, bulma.SizeLarge) {
 								Default
 							}
 						}
 					}
 				}
-				@bulma.Block() {
+				@bulma.NewBlock() {
 					@bulma.H3("Content", false)
 					@bulma.ButtonNewTab("https://bulma.io/documentation/elements/content/", "Content Docs", bulma.ColorDefault, bulma.SizeDefault)
 					@html.Br()
 					This one is harder to show, but it can be used.
 				}
-				@bulma.Block() {
+				@bulma.NewBlock() {
 					@bulma.H3("Delete", false)
 					This one adds a cross icon and it can be attached to various elements.
 					@html.Br()
 					@bulma.ButtonNewTab("https://bulma.io/documentation/elements/delete/", "Delete Docs", bulma.ColorDefault, bulma.SizeDefault)
-					@bulma.Block() {
+					@bulma.NewBlock() {
 						@bulma.Delete(bulma.SizeSmall)
 						@bulma.Delete(bulma.SizeDefault)
 						@bulma.Delete(bulma.SizeMedium)
 						@bulma.Delete(bulma.SizeLarge)
 					}
 				}
-				@bulma.Block() {
+				@bulma.NewBlock() {
 					@bulma.H3("Icons", false)
 					Icons can be added to some elements.  
 					If it supports an icon the variable will be 'fontAwesomeIcon'.
@@ -102,6 +101,7 @@ templ Example() {
 				}
 			}
 			@bulma.RequiredModelScript()
+			@bulma.RequiredNavbarToggleScript()
 		}
 	}
 }

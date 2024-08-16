@@ -527,9 +527,9 @@ func FormLabel(text string) templ.Component {
 
 // This is a helper to create the following object for you.
 //
-//	@bulma.FormField() {
+//	@bulma.NewFormField() {
 //		@bulma.FormLabel(label)
-//		@bulma.FormControl() {
+//		@bulma.NewFormControl() {
 //			@bulma.FormTextInput(id, bulma.InputTypeText, placeholder)
 //		}
 //	}
@@ -589,13 +589,13 @@ func FormLabelTextInput(id, label, placeholder string) templ.Component {
 				}
 				return templ_7745c5c3_Err
 			})
-			templ_7745c5c3_Err = FormControl().Render(templ.WithChildren(ctx, templ_7745c5c3_Var37), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = NewFormControl().Render(templ.WithChildren(ctx, templ_7745c5c3_Var37), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return templ_7745c5c3_Err
 		})
-		templ_7745c5c3_Err = FormField().Render(templ.WithChildren(ctx, templ_7745c5c3_Var36), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = NewFormField().Render(templ.WithChildren(ctx, templ_7745c5c3_Var36), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -607,10 +607,10 @@ func FormLabelTextInput(id, label, placeholder string) templ.Component {
 //
 // Accepts Children
 //
-//	 @bulma.FormField() {
+//	 @bulma.NewFormField() {
 //		@bulma.FormLabel("Type")
 //		@bulma.FormControl() {
-//			@bulma.FormSelectOne("type", false) {
+//			@Newbulma.FormSelectOne("type", false) {
 //				@bulma.FormSelectOneItem("Playlist")
 //				@bulma.FormSelectOneItem("Artist")
 //				@bulma.FormSelectOneItem("Album")
@@ -685,19 +685,19 @@ func FormLabelSelectOne(label, id string) templ.Component {
 					}
 					return templ_7745c5c3_Err
 				})
-				templ_7745c5c3_Err = FormSelectOne("type", false).Render(templ.WithChildren(ctx, templ_7745c5c3_Var41), templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = NewFormSelectOne("type", false).Render(templ.WithChildren(ctx, templ_7745c5c3_Var41), templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				return templ_7745c5c3_Err
 			})
-			templ_7745c5c3_Err = FormControl().Render(templ.WithChildren(ctx, templ_7745c5c3_Var40), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = NewFormControl().Render(templ.WithChildren(ctx, templ_7745c5c3_Var40), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return templ_7745c5c3_Err
 		})
-		templ_7745c5c3_Err = FormField().Render(templ.WithChildren(ctx, templ_7745c5c3_Var39), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = NewFormField().Render(templ.WithChildren(ctx, templ_7745c5c3_Var39), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -705,7 +705,7 @@ func FormLabelSelectOne(label, id string) templ.Component {
 	})
 }
 
-func FormSelectOne(id string, isRound bool) templ.Component {
+func NewFormSelectOne(id string, isRound bool) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -995,7 +995,7 @@ func FormSelectOneItem(name string) templ.Component {
 	})
 }
 
-func FormSelectMany(howManySelectable int, id string, isRound bool) templ.Component {
+func NewFormSelectMany(howManySelectable int, id string, isRound bool) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -1042,7 +1042,7 @@ func FormSelectMany(howManySelectable int, id string, isRound bool) templ.Compon
 	})
 }
 
-func FormSelectManyColor(howManySelectable int, color, id string, isRound bool) templ.Component {
+func NewFormSelectManyColor(howManySelectable int, color, id string, isRound bool) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -1160,7 +1160,7 @@ func FormSelectManyItem(name string) templ.Component {
 }
 
 // This creates a field that you can add a Label, Control or Input object.
-func FormField() templ.Component {
+func NewFormField() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -1195,7 +1195,7 @@ func FormField() templ.Component {
 }
 
 // Div container to add a input field to.
-func FormControl() templ.Component {
+func NewFormControl() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)

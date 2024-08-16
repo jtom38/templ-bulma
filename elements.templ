@@ -4,7 +4,7 @@ package bulma
 // Accepts Children
 //
 // https://bulma.io/documentation/elements/block/
-templ Block() {
+templ NewBlock() {
 	<div class="block">
 		{ children... }
 	</div>
@@ -14,7 +14,7 @@ templ Block() {
 // Accepts Children
 //
 // https://bulma.io/documentation/elements/box/
-templ Box() {
+templ NewBox() {
 	<div class="box">
 		{ children... }
 	</div>
@@ -24,7 +24,7 @@ templ Box() {
 // Accepts Children
 //
 // https://bulma.io/documentation/elements/button/
-templ Button(color, size string) {
+templ NewButton(color, size string) {
 	<button type="button" class={ "button", color, size }>
 		{ children... }
 	</button>
@@ -38,7 +38,7 @@ templ ButtonNewTab(url, text, color, size string) {
 }
 
 // https://bulma.io/documentation/elements/content/
-templ Content() {
+templ NewContent() {
 	<div class="content">
 		{ children... }
 	</div>
@@ -77,7 +77,7 @@ templ IconText(fontAwesomeIcon, text string) {
 // Use html.Img() to load a image as a child
 //
 // https://bulma.io/documentation/elements/image/
-templ Image(image string) {
+templ NewImage(image string) {
 	<figure class={ "image", image }>
 		{ children... }
 	</figure>
@@ -86,7 +86,7 @@ templ Image(image string) {
 // Creates an image object that defines the image under it.
 // https://bulma.io/documentation/elements/image/
 templ ImageSrc(image, src, alt string) {
-	@Image(image) {
+	@NewImage(image) {
 		<img src={ src } alt={ alt }/>
 	}
 }
@@ -108,21 +108,21 @@ templ ProgressBar(color, value, max string) {
 // Creates a <table> that accepts children
 //
 // https://bulma.io/documentation/elements/table/
-templ Table() {
+templ NewTable() {
 	<table class="table">
 		{ children... }
 	</table>
 }
 
 // Creates a <thead> that accepts children.
-templ TableHeader() {
+templ NewTableHeader() {
 	<thead>
 		{ children... }
 	</thead>
 }
 
 // Creates a <tf> that accepts children.
-templ TableRow() {
+templ NewTableRow() {
 	<tr>
 		{ children... }
 	</tr>
@@ -139,7 +139,7 @@ templ TableHeaderDataToolTip(value, tooltip string) {
 }
 
 // Creates a <td> that accepts children.
-templ TableDataChildren() {
+templ NewTableDataChildren() {
 	<td>
 		{ children... }
 	</td>
@@ -150,15 +150,7 @@ templ TableData(value string) {
 }
 
 // https://bulma.io/documentation/elements/tag/
-templ Tag(message string) {
-	<span class={ "tag" }>{ message }</span>
-}
-
-templ TagColor(message, color string) {
-	<span class={ "tag", color }>{ message }</span>
-}
-
-templ TagColorSize(message, color, size string) {
+templ Tag(message, color, size string) {
 	<span class={ "tag", color, size }>{ message }</span>
 }
 

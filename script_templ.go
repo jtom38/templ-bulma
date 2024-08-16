@@ -63,3 +63,33 @@ func RequiredModelScript() templ.Component {
 		return templ_7745c5c3_Err
 	})
 }
+
+// This script will toggle the navbar on mobile.
+// This needs to be placed at the end of your body tag.
+//
+// https://bulma.io/documentation/components/navbar/#navbar-menu
+func RequiredNavbarToggleScript() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var3 == nil {
+			templ_7745c5c3_Var3 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        document.addEventListener('DOMContentLoaded', () => {\n            // Get all \"navbar-burger\" elements\n            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);\n\n            // Add a click event on each of them\n            $navbarBurgers.forEach( el => {\n                el.addEventListener('click', () => {\n                // Get the target from the \"data-target\" attribute\n                const target = el.dataset.target; \n                const $target = document.getElementById(target);\n\n                // Toggle the \"is-active\" class on both the \"navbar-burger\" and the \"navbar-menu\"\n                el.classList.toggle('is-active');\n                $target.classList.toggle('is-active');\n                });\n            });\n        });\n    </script>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}

@@ -19,6 +19,13 @@ const (
 	ColorSuccess = "is-success"
 	ColorDanger  = "is-danger"
 
+	ColumnsVCentered = "is-vcentered"
+	ColumnsMultiline = "is-multiline"
+	ColumnsMobile    = "is-mobile"
+	ColumnsCentered  = "is-centered"
+	ColumnsNarrow    = "is-narrow"
+	ColumnsGapless   = "is-gapless"
+
 	ColumnSizeDefault         = ""
 	ColumnSizeIsThreeQuarters = "is-three-quarters"
 	ColumnSizeIsTwoThirds     = "is-two-thirds"
@@ -54,4 +61,5 @@ const (
 	StyleBoxed         = "is-boxed"
 	StyleToggle        = "is-toggle"
 	StyleToggleRounded = "is-toggle is-toggle-rounded"
+
 )

@@ -1,0 +1,25 @@
+package bulma
+
+templ NewGrid() {
+	<div class="grid">
+		{ children... }
+	</div>
+}
+
+templ NewFlexGrid(useAutoCount bool) {
+	if useAutoCount {
+		<div class="flex-grid has-auto-grid">
+			{ children... }
+		</div>
+	} else {
+		<div class="flex-grid">
+			{ children... }
+		</div>
+	}
+}
+
+templ NewGridCell() {
+	<div class="cell">
+		{ children... }
+	</div>
+}

@@ -1,14 +1,21 @@
 package bulma
 
-// Creates a Column container
-templ NewColumns() {
-	<div class="columns">
+// Creates a new Columns container that accepts multiple column objects.
+// This accepts multiple Columns... values.
+//
+// https://bulma.io/documentation/columns/options/
+templ NewColumns(columns ...string) {
+	<div class={ "columns", columns }>
 		{ children... }
 	</div>
 }
 
-templ Column(columnSize string) {
+// Creates a new column that can accept multiple sizes.
+// You can pass in multiple sizes, but start with one and add more if you need them.
+//
+// https://bulma.io/documentation/columns/responsiveness/
+templ NewColumn(columnSize ...string) {
 	<div class={ "column", columnSize }>
-        { children... }
+		{ children... }
 	</div>
 }
