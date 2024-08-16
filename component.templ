@@ -76,7 +76,7 @@ templ CardImage(imageSize, src, alt string) {
 }
 
 // Creates a basic header for a Card that just has text
-templ CardHeader(title string) {
+templ NewCardHeader(title string) {
 	<header class="card-header">
 		<p class="card-header-title">{ title }</p>
 		{ children... }
@@ -99,7 +99,7 @@ templ CardHeaderIcon(title string) {
 // a multi-purpose container for any other element
 //
 // Accepts Children
-templ CardContent() {
+templ NewCardContent() {
 	<div class="card-content">
 		{ children... }
 	</div>
@@ -108,7 +108,7 @@ templ CardContent() {
 // a horizontal list of controls
 //
 // Accepts Children
-templ CardFooter() {
+templ NewCardFooter() {
 	<footer class="card-footer">
 		{ children... }
 	</footer>
@@ -122,21 +122,21 @@ templ ExampleCard() {
 	@NewCard() {
 		@CardHeaderIcon("Example Card")
 		@CardImage(ImageIs128x128, "https://...", "A Picture")
-		@CardContent() {
-			@Media() {
-				@MediaLeft() {
+		@NewCardContent() {
+			@NewMedia() {
+				@NewMediaLeft() {
 					@ImageSrc(ImageIs128x128, "https://...", "Its a picture")
 				}
 				@Title("Ryan Renolds")
 				@Subitle("@therealdeadpool")
-				@MediaContent() {
-					@Content() {
+				@NewMediaContent() {
+					@NewContent() {
 						"What?  Did you expect something useful?"
 					}
 				}
 			}
 		}
-		@CardFooter() {
+		@NewCardFooter() {
 			@CardFooterItem("/article/1234/edit", "Edit")
 			@CardFooterItem("/article/1234/save", "Save")
 			@CardFooterItem("/article/1234/delete", "Delete")
@@ -174,7 +174,7 @@ templ DropdownTrigger(text, controls string) {
 // Accepts Children
 //
 // https://bulma.io/documentation/components/dropdown/
-templ DropdownMenu(controls string) {
+templ NewDropdownMenu(controls string) {
 	<div class="dropdown-menu" id={ controls } role="menu">
 		<div class="dropdown-content">
 			{ children... }
@@ -193,7 +193,7 @@ templ DropdownMenuSeperator() {
 templ ExampleDropdown() {
 	@NewDropdown() {
 		@DropdownTrigger("Demo", "demo-menu")
-		@DropdownMenu("demo-menu") {
+		@NewDropdownMenu("demo-menu") {
 			@DropdownMenuLink("https://bulma.io", "Bulma CSS")
 			@DropdownMenuLink("https://github.com/a-h/templ", "Templ")
 			@DropdownMenuSeperator()
@@ -219,7 +219,7 @@ templ MenuLabel(text string) {
 	<p class="menu-label">{ text }</p>
 }
 
-templ MenuList() {
+templ NewMenuList() {
 	<ul class="menu-list">
 		{ children... }
 	</ul>
@@ -234,11 +234,11 @@ templ MenuListItem(url, title string) {
 templ ExampleMenu() {
 	@NewMenu() {
 		@MenuLabel("CSS Frameworks")
-		@MenuList() {
+		@NewMenuList() {
 			@MenuListItem("https://bulma.io", "Bulma")
 		}
 		@MenuLabel("Github Links")
-		@MenuList() {
+		@NewMenuList() {
 			@MenuListItem("https://github.com/jtom38/templ-bulma", "templ-bulma")
 			@MenuListItem("https://github.com/a-h/templ", "templ")
 			@MenuListItem("#", "placeholder")
@@ -273,7 +273,7 @@ templ MessageWithHeader(text string) {
 //
 // Pass in the text with some basic html tags only.
 // Should support @bulma.Content() but its not validated at this time.
-templ MessageBody() {
+templ NewMessageBody() {
 	<div class="message-body">
 		{ children... }
 	</div>
@@ -298,7 +298,7 @@ templ NewModel() {
 // Accepts Children
 //
 // You can use any bulma object within a model
-templ ModelContent() {
+templ NewModelContent() {
 	<div class="modal-content">
 		{ children... }
 	</div>
@@ -319,7 +319,7 @@ templ NewNavbar() {
 // On the left side, always visible, which usually contains the logo and optionally some links or icons
 //
 // Accepts Children
-templ NavbarBrand() {
+templ NewNavbarBrand() {
 	<div class="navbar-brand">
 		{ children... }
 	</div>
@@ -345,19 +345,19 @@ templ NavbarBrandBurger(dataTarget string) {
 	</a>
 }
 
-templ NavbarMenu(dataTarget string) {
+templ NewNavbarMenu(dataTarget string) {
 	<div id={ dataTarget } class="navbar-menu">
 		{ children... }
 	</div>
 }
 
-templ NavbarStart() {
+templ NewNavbarStart() {
 	<div class="navbar-start">
 		{ children... }
 	</div>
 }
 
-templ NavbarItemDropdown(text string) {
+templ NewNavbarItemDropdown(text string) {
 	<div class="navbar-item has-dropdown is-hoverable">
 		<a class="navbar-link">{ text }</a>
 		<div class="navbar-dropdown">
@@ -374,14 +374,14 @@ templ NavbarItemDropdownDivider() {
 // Don't use this in your project.
 templ NavbarExample() {
 	@NewNavbar() {
-		@NavbarBrand() {
+		@NewNavbarBrand() {
 			@NavbarItem("/", "Home")
 			@NavbarBrandBurger("mainNavbarMenu")
 		}
-		@NavbarMenu("mainNavbarMenu") {
+		@NewNavbarMenu("mainNavbarMenu") {
 			@NavbarItem("/", "Home")
 			@NavbarItem("/documentation", "Documentation")
-			@NavbarItemDropdown("More") {
+			@NewNavbarItemDropdown("More") {
 				@NavbarItem("/about", "About")
 				@NavbarItem("/jobs", "Jobs")
 				@NavbarItem("/contact", "Contact Us")
@@ -411,7 +411,7 @@ templ PaginationNext(url, text string) {
 	<a href={ templ.SafeURL(url) } class="pagination-next">{ text }</a>
 }
 
-templ PaginationList() {
+templ NewPaginationList() {
 	<ul class="pagination-list">
 		{ children... }
 	</ul>
@@ -438,7 +438,7 @@ templ PaginationActive(text, ariaLabel string) {
 templ PaginationExample() {
 	@NewPagination() {
 		@PaginationPrevious("/articles?page=10", "Previous")
-		@PaginationList() {
+		@NewPaginationList() {
 			@PaginationListItem("/articles?page=1", "1", "Goto page 1")
 			@PaginationEllispsis()
 			@PaginationActive("11", "Page 11")
@@ -475,7 +475,7 @@ templ PanelHeaderIcon(text, faIcon string) {
 }
 
 // Accepts Children
-templ PanelTabs() {
+templ NewPanelTabs() {
 	<p class="panel-tabs">
 		{ children... }
 	</p>

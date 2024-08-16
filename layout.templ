@@ -1,40 +1,13 @@
 package bulma
 
-templ Container(breakpoint string) {
+templ NewContainer(breakpoint string) {
 	<div class={ "container", breakpoint }>
 		{ children... }
 	</div>
 }
 
-templ Hero(title, subtitle string) {
-	<section class="hero">
-		<div class="hero-body">
-			<p class="title">{ title }</p>
-			<p class="subtitle">{ subtitle }</p>
-		</div>
-	</section>
-}
-
-templ HeroSize(title, subtitle, size string) {
-	<section class={ "hero", size }>
-		<div class="hero-body">
-			<p class="title">{ title }</p>
-			<p class="subtitle">{ subtitle }</p>
-		</div>
-	</section>
-}
-
-templ HeroColor(title, subtitle, color string) {
-	<section class={ "hero", color }>
-		<div class="hero-body">
-			<p class="title">{ title }</p>
-			<p class="subtitle">{ subtitle }</p>
-		</div>
-	</section>
-}
-
-templ HeroColorSize(title, subtitle, color, size string) {
-	<section class={ "hero", color, size }>
+templ Hero(title, subtitle, size, color string) {
+	<section class={ "hero", size, color }>
 		<div class="hero-body">
 			<p class="title">{ title }</p>
 			<p class="subtitle">{ subtitle }</p>
@@ -43,9 +16,104 @@ templ HeroColorSize(title, subtitle, color, size string) {
 }
 
 // Creates a <section> object thats good to break up a page of content.
-templ Section(title, subtitle string) {
+//
+// Accepts Children
+//
+// https://bulma.io/documentation/layout/section/
+templ NewSection(size string) {
 	<section class="section">
-		<h1 class="title">{ title }</h1>
-		<h2 class="subtitle">{ subtitle }</h2>
+		{ children... }
 	</section>
+}
+
+// A multi-purpose horizontal level, which can contain almost any other element
+//
+// Accepts Children
+//
+// https://bulma.io/documentation/layout/level/
+templ NewLevel(isMobile bool) {
+	if isMobile {
+		<nav class="level is-mobile">
+			{ children... }
+		</nav>
+	} else {
+		<nav class="level">
+			{ children... }
+		</nav>
+	}
+}
+
+// Level container that aligns to the left
+//
+// Accepts Children
+templ NewLevelLeft() {
+	<div class="level-left">
+		{ children... }
+	</div>
+}
+
+// Level container that alights to the right
+//
+// Accepts Children
+templ NewLevelRight() {
+	<div class="level-right">
+		{ children... }
+	</div>
+}
+
+// Creates a element within the Level object
+templ NewLevelItem(hasTextCentered bool) {
+	if hasTextCentered {
+		<div class="level-item has-text-centered">
+			{ children... }
+		</div>
+	} else {
+		<div class="level-item">
+			{ children... }
+		</div>
+	}
+}
+
+// Creats a new base object of a Media object
+//
+// https://bulma.io/documentation/layout/media-object/
+templ NewMedia() {
+	<article class="media">
+		{ children... }
+	</article>
+}
+
+templ NewMediaLeft() {
+	<div class="media-left">
+		{ children... }
+	</div>
+}
+
+templ NewMediaRight() {
+	<div class="media-right">
+		{ children... }
+	</div>
+}
+
+templ MediaImage(image, url string, isLeft, isRight bool) {
+	if isLeft {
+		<figure class="media-left">
+			<p class={ "image", image }>
+				<img src={ url }/>
+			</p>
+		</figure>
+	}
+    if isRight {
+        <figure class="media-right">
+			<p class={ "image", image }>
+				<img src={ url }/>
+			</p>
+		</figure>
+    }
+}
+
+templ NewMediaContent() {
+	<div class="media-content">
+		{ children... }
+	</div>
 }

@@ -48,16 +48,16 @@ templ FormLabel(text string) {
 
 // This is a helper to create the following object for you.
 //
-// @bulma.FormField() {
+// @bulma.NewFormField() {
 // 	@bulma.FormLabel(label)
-// 	@bulma.FormControl() {
+// 	@bulma.NewFormControl() {
 // 		@bulma.FormTextInput(id, bulma.InputTypeText, placeholder)
 // 	}
 // }
 templ FormLabelTextInput(id, label, placeholder string) {
-	@FormField() {
+	@NewFormField() {
 		@FormLabel(label)
-		@FormControl() {
+		@NewFormControl() {
 			@FormTextInput(id, InputTypeText, placeholder)
 		}
 	}
@@ -67,10 +67,10 @@ templ FormLabelTextInput(id, label, placeholder string) {
 //
 // Accepts Children
 //
-//  @bulma.FormField() {
+//  @bulma.NewFormField() {
 //	@bulma.FormLabel("Type")
 //	@bulma.FormControl() {
-//		@bulma.FormSelectOne("type", false) {
+//		@Newbulma.FormSelectOne("type", false) {
 //			@bulma.FormSelectOneItem("Playlist")
 //			@bulma.FormSelectOneItem("Artist")
 //			@bulma.FormSelectOneItem("Album")
@@ -78,17 +78,17 @@ templ FormLabelTextInput(id, label, placeholder string) {
 //	}
 //}
 templ FormLabelSelectOne(label, id string) {
-	@FormField() {
+	@NewFormField() {
 		@FormLabel("Type")
-		@FormControl() {
-			@FormSelectOne("type", false) {
+		@NewFormControl() {
+			@NewFormSelectOne("type", false) {
 				{ children... }
 			}
 		}
 	}
 }
 
-templ FormSelectOne(id string, isRound bool) {
+templ NewFormSelectOne(id string, isRound bool) {
 	if isRound {
 		<div class="select is-round">
 			<select id={ id } name={ id }>
@@ -124,7 +124,7 @@ templ FormSelectOneItem(name string) {
 	<option value={ name }>{ name }</option>
 }
 
-templ FormSelectMany(howManySelectable int, id string, isRound bool) {
+templ NewFormSelectMany(howManySelectable int, id string, isRound bool) {
 	<div class="select is-multiple" id={ id }>
 		<select multiple size="{ howManySelectable }">
 			{ children... }
@@ -132,7 +132,7 @@ templ FormSelectMany(howManySelectable int, id string, isRound bool) {
 	</div>
 }
 
-templ FormSelectManyColor(howManySelectable int, color, id string, isRound bool) {
+templ NewFormSelectManyColor(howManySelectable int, color, id string, isRound bool) {
 	<div class={ "select is-multiple", color } id={ id }>
 		<select multiple size="{ howManySelectable }">
 			{ children... }
@@ -145,14 +145,14 @@ templ FormSelectManyItem(name string) {
 }
 
 // This creates a field that you can add a Label, Control or Input object.
-templ FormField() {
+templ NewFormField() {
 	<div class="field">
 		{ children... }
 	</div>
 }
 
 // Div container to add a input field to.
-templ FormControl() {
+templ NewFormControl() {
 	<div class="control">
 		{ children... }
 	</div>

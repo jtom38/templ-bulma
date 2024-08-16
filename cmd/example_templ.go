@@ -110,11 +110,7 @@ func Example() templ.Component {
 						}()
 					}
 					ctx = templ.InitializeContext(ctx)
-					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
-					if templ_7745c5c3_Err != nil {
-						return templ_7745c5c3_Err
-					}
-					templ_7745c5c3_Err = bulma.Hero("templ-bulma", "Showing off how to use this package").Render(ctx, templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = bulma.Hero("templ-bulma", "Showing off how to use this package", bulma.SizeDefault, bulma.ColorDefault).Render(ctx, templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -168,7 +164,7 @@ func Example() templ.Component {
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -230,13 +226,13 @@ func Example() templ.Component {
 							}
 							return templ_7745c5c3_Err
 						})
-						templ_7745c5c3_Err = bulma.Box().Render(templ.WithChildren(ctx, templ_7745c5c3_Var8), templ_7745c5c3_Buffer)
+						templ_7745c5c3_Err = bulma.NewBox().Render(templ.WithChildren(ctx, templ_7745c5c3_Var8), templ_7745c5c3_Buffer)
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -334,7 +330,7 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorDefault, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var12), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorDefault, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var12), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
@@ -360,7 +356,7 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorInfo, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorInfo, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
@@ -386,7 +382,7 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorPrimary, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var14), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorPrimary, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var14), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
@@ -412,7 +408,7 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorSuccess, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorSuccess, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
@@ -438,13 +434,13 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorDanger, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var16), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorDanger, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var16), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
 								return templ_7745c5c3_Err
 							})
-							templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
+							templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
 							if templ_7745c5c3_Err != nil {
 								return templ_7745c5c3_Err
 							}
@@ -494,7 +490,7 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorDefault, bulma.SizeSmall).Render(templ.WithChildren(ctx, templ_7745c5c3_Var18), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorDefault, bulma.SizeSmall).Render(templ.WithChildren(ctx, templ_7745c5c3_Var18), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
@@ -520,7 +516,7 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorDefault, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var19), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorDefault, bulma.SizeDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var19), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
@@ -546,7 +542,7 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorDefault, bulma.SizeMedium).Render(templ.WithChildren(ctx, templ_7745c5c3_Var20), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorDefault, bulma.SizeMedium).Render(templ.WithChildren(ctx, templ_7745c5c3_Var20), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
@@ -572,25 +568,25 @@ func Example() templ.Component {
 									}
 									return templ_7745c5c3_Err
 								})
-								templ_7745c5c3_Err = bulma.Button(bulma.ColorDefault, bulma.SizeLarge).Render(templ.WithChildren(ctx, templ_7745c5c3_Var21), templ_7745c5c3_Buffer)
+								templ_7745c5c3_Err = bulma.NewButton(bulma.ColorDefault, bulma.SizeLarge).Render(templ.WithChildren(ctx, templ_7745c5c3_Var21), templ_7745c5c3_Buffer)
 								if templ_7745c5c3_Err != nil {
 									return templ_7745c5c3_Err
 								}
 								return templ_7745c5c3_Err
 							})
-							templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var17), templ_7745c5c3_Buffer)
+							templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var17), templ_7745c5c3_Buffer)
 							if templ_7745c5c3_Err != nil {
 								return templ_7745c5c3_Err
 							}
 							return templ_7745c5c3_Err
 						})
-						templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var10), templ_7745c5c3_Buffer)
+						templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var10), templ_7745c5c3_Buffer)
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -636,7 +632,7 @@ func Example() templ.Component {
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var22), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var22), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -722,13 +718,13 @@ func Example() templ.Component {
 							}
 							return templ_7745c5c3_Err
 						})
-						templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var24), templ_7745c5c3_Buffer)
+						templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var24), templ_7745c5c3_Buffer)
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var23), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var23), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -770,13 +766,13 @@ func Example() templ.Component {
 						}
 						return templ_7745c5c3_Err
 					})
-					templ_7745c5c3_Err = bulma.Block().Render(templ.WithChildren(ctx, templ_7745c5c3_Var25), templ_7745c5c3_Buffer)
+					templ_7745c5c3_Err = bulma.NewBlock().Render(templ.WithChildren(ctx, templ_7745c5c3_Var25), templ_7745c5c3_Buffer)
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
 					return templ_7745c5c3_Err
 				})
-				templ_7745c5c3_Err = bulma.Container(bulma.BreakpointDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = bulma.NewContainer(bulma.BreakpointDefault).Render(templ.WithChildren(ctx, templ_7745c5c3_Var5), templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -785,6 +781,14 @@ func Example() templ.Component {
 					return templ_7745c5c3_Err
 				}
 				templ_7745c5c3_Err = bulma.RequiredModelScript().Render(ctx, templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" ")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = bulma.RequiredNavbarToggleScript().Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

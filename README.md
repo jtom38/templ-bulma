@@ -11,13 +11,15 @@ I wanted add building blocks for templ so I had to look at less html and more Go
 Overall I found it to be helpful because everything now populates with intellasence. 
 With the naming pattern it should be easy to find the related components and build on top of it.
 
-
-
 ## How to use 
 
 ```bash
 go get github.com/jtom38/templ-bulma
 ```
+
+## Usage
+
+Any of the functions that are `New*` support having a templ child item.  
 
 ## HTMX
 
