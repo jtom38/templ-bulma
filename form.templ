@@ -7,31 +7,31 @@ const (
 	InputTypePhoneNumber = "tel"
 )
 
-type NewFormParam struct {
-	HxPost string
+// Creates a new standard HTML form.
+templ NewForm(url string) {
+	<form action={ templ.SafeURL(url) }>
+		{ children... }
+	</form>
 }
 
-templ NewForm(param NewFormParam) {
-	if param.HxPost != "" {
-		<form hx-post={ param.HxPost }>
-			{ children... }
-		</form>
-	}
+// Creates a new HTML form that will be processed via HTMX.
+templ NewHxForm(hxpostUrl string) {
+	<form hx-post={ hxpostUrl }>
+		{ children... }
+	</form>
 }
 
-templ FormTextInput(id, fieldType, placeholder string) {
-	<input class={ "input" } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
+templ FormTextInput(id, fieldType, placeholder, color string) {
+	<input class={ "input", color} name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
 }
 
-templ FormTextInputWithValue(id, fieldType, value string) {
-	<input class={ "input" } name={ id } id={ id } type={ fieldType } value={ value }/>
-}
-
-templ FormTextInputColor(color, id, fieldType, placeholder string) {
-	if color == "" {
-		<input class={ "input" } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
+// Creates a text form that populates a default value.
+// This one gives you the option to mark the field as readonly so users are unable to change the value.
+templ FormTextInputWithValue(id, fieldType, value, color string, readonly bool) {
+	if readonly {
+		<input class={ "input", color } name={ id } id={ id } type={ fieldType } value={ value } readonly/>
 	} else {
-		<input class={ "input", color } name={ id } id={ id } type={ fieldType } placeholder={ placeholder }/>
+		<input class={ "input", color } name={ id } id={ id } type={ fieldType } value={ value }/>
 	}
 }
 
@@ -58,12 +58,12 @@ templ FormLabelTextInput(id, label, placeholder string) {
 	@NewFormField() {
 		@FormLabel(label)
 		@NewFormControl() {
-			@FormTextInput(id, InputTypeText, placeholder)
+			@FormTextInput(id, InputTypeText, placeholder, ColorDefault)
 		}
 	}
 }
 
-// This is a helper that creates the following object for you. 
+// This is a helper that creates the following object for you.
 //
 // Accepts Children
 //
