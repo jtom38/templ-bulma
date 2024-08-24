@@ -1,0 +1,88 @@
+package bulma
+
+templ HxButtonLink(color, size, text string, hx HtmxProperties) {
+	<a
+		class={ "button", color, size }
+		if hx.HxGet != "" {
+			hx-get={ hx.HxGet }
+		}
+		if hx.HxPost != "" {
+			hx-post={ hx.HxPost }
+		}
+		if hx.HxTrigger != "" {
+			hx-trigger={ hx.HxTrigger }
+		}
+		if hx.HxTarget != "" {
+			hx-target={ hx.HxTarget }
+		}
+		if hx.HxSwap != "" {
+			hx-swap={ hx.HxSwap }
+		}
+	>{ text }</a>
+}
+
+templ NewHxContainer(breakpoint, id string, hx HtmxProperties) {
+	<div
+		class={ "container", breakpoint }
+		id={ id }
+		if hx.HxGet != "" {
+			hx-get={ hx.HxGet }
+		}
+		if hx.HxPost != "" {
+			hx-post={ hx.HxPost }
+		}
+		if hx.HxTrigger != "" {
+			hx-trigger={ hx.HxTrigger }
+		}
+		if hx.HxTarget != "" {
+			hx-target={ hx.HxTarget }
+		}
+		if hx.HxSwap != "" {
+			hx-swap={ hx.HxSwap }
+		}
+	>
+		{ children... }
+	</div>
+}
+
+templ HxDropdownMenuLink(text string, hx HtmxProperties) {
+	<a
+		class="dropdown-item"
+		if hx.HxGet != "" {
+			hx-get={ hx.HxGet }
+		}
+		if hx.HxPost != "" {
+			hx-post={ hx.HxPost }
+		}
+		if hx.HxTrigger != "" {
+			hx-trigger={ hx.HxTrigger }
+		}
+		if hx.HxTarget != "" {
+			hx-target={ hx.HxTarget }
+		}
+		if hx.HxSwap != "" {
+			hx-swap={ hx.HxSwap }
+		}
+	>{ text }</a>
+}
+
+templ HxNavbarItem(text string, hx HtmxProperties) {
+	<a
+		class="navbar-item"
+		if hx.HxGet != "" {
+			hx-get={ hx.HxGet }
+		}
+		if hx.HxPost != "" {
+			hx-post={ hx.HxPost }
+		}
+		if hx.HxTrigger != "" {
+			hx-trigger={ hx.HxTrigger }
+		}
+		if hx.HxTarget != "" {
+			hx-target={ hx.HxTarget }
+		}
+		if hx.HxSwap != "" {
+			hx-swap={ hx.HxSwap }
+		}
+	>{ text }</a>
+}
