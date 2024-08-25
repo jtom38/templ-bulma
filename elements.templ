@@ -105,14 +105,17 @@ templ ProgressBar(color, value, max string) {
 	</progress>
 }
 
+
+
 // Creates a <table> that accepts children
 //
 // https://bulma.io/documentation/elements/table/
-templ NewTable() {
-	<table class="table">
+templ NewTable(table ...string) {
+	<table class={ "table", table }>
 		{ children... }
 	</table>
 }
+
 
 // Creates a <thead> that accepts children.
 templ NewTableHeader() {
