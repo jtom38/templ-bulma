@@ -62,4 +62,10 @@ const (
 	StyleToggle        = "is-toggle"
 	StyleToggleRounded = "is-toggle is-toggle-rounded"
 
+	TableDefault   = ""
+	TableBordered  = "is-bordered"
+	TableStriped   = "is-striped"
+	TableNarrow    = "is-narrow"
+	TableHoverable = "is-hoverable"
+	TableFullWidth = "is-fullwidth"
 )
