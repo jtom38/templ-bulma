@@ -18,6 +18,12 @@ templ HxButtonLink(color, size, text string, hx HtmxProperties) {
 		if hx.HxSwap != "" {
 			hx-swap={ hx.HxSwap }
 		}
+		if hx.HxBoost {
+			hx-boost="true"
+		}
+		if hx.HxPushUrl {
+			hx-push-url="true"
+		}
 	>{ text }</a>
 }
 
@@ -40,9 +46,14 @@ templ NewHxContainer(breakpoint, id string, hx HtmxProperties) {
 		if hx.HxSwap != "" {
 			hx-swap={ hx.HxSwap }
 		}
-	>
-		{ children... }
-	</div>
+		if hx.HxBoost {
+			hx-boost="true"
+		}
+		if hx.HxPushUrl {
+			hx-push-url="true"
+		}
+	>{ children... }
+</div>
 }
 
 templ HxDropdownMenuLink(text string, hx HtmxProperties) {
@@ -62,6 +73,12 @@ templ HxDropdownMenuLink(text string, hx HtmxProperties) {
 		}
 		if hx.HxSwap != "" {
 			hx-swap={ hx.HxSwap }
+		}
+		if hx.HxBoost {
+			hx-boost="true"
+		}
+		if hx.HxPushUrl {
+			hx-push-url="true"
 		}
 	>{ text }</a>
 }
@@ -83,6 +100,12 @@ templ HxNavbarItem(text string, hx HtmxProperties) {
 		}
 		if hx.HxSwap != "" {
 			hx-swap={ hx.HxSwap }
+		}
+		if hx.HxBoost {
+			hx-boost="true"
+		}
+		if hx.HxPushUrl {
+			hx-push-url="true"
 		}
 	>{ text }</a>
 }
