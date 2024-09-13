@@ -109,3 +109,153 @@ templ HxNavbarItem(text string, hx HtmxProperties) {
 		}
 	>{ text }</a>
 }
+
+templ HxLink(text string, hx HtmxProperties) {
+	<a
+		if hx.HxGet != "" {
+			hx-get={ hx.HxGet }
+		}
+		if hx.HxPost != "" {
+			hx-post={ hx.HxPost }
+		}
+		if hx.HxTrigger != "" {
+			hx-trigger={ hx.HxTrigger }
+		}
+		if hx.HxTarget != "" {
+			hx-target={ hx.HxTarget }
+		}
+		if hx.HxSwap != "" {
+			hx-swap={ hx.HxSwap }
+		}
+		if hx.HxBoost {
+			hx-boost="true"
+		}
+		if hx.HxPushUrl {
+			hx-push-url="true"
+		}
+	>
+		<span>{ text }</span>
+	</a>
+}
+
+templ HxTabLink(text string, isActive bool, hx HtmxProperties) {
+	if isActive {
+		<li class="is-active">
+			<a
+				if hx.HxGet != "" {
+					hx-get={ hx.HxGet }
+				}
+				if hx.HxPost != "" {
+					hx-post={ hx.HxPost }
+				}
+				if hx.HxTrigger != "" {
+					hx-trigger={ hx.HxTrigger }
+				}
+				if hx.HxTarget != "" {
+					hx-target={ hx.HxTarget }
+				}
+				if hx.HxSwap != "" {
+					hx-swap={ hx.HxSwap }
+				}
+				if hx.HxBoost {
+					hx-boost="true"
+				}
+				if hx.HxPushUrl {
+					hx-push-url="true"
+				}
+			>{ text }</a>
+		</li>
+	} else {
+		<li>
+			<a
+				if hx.HxGet != "" {
+					hx-get={ hx.HxGet }
+				}
+				if hx.HxPost != "" {
+					hx-post={ hx.HxPost }
+				}
+				if hx.HxTrigger != "" {
+					hx-trigger={ hx.HxTrigger }
+				}
+				if hx.HxTarget != "" {
+					hx-target={ hx.HxTarget }
+				}
+				if hx.HxSwap != "" {
+					hx-swap={ hx.HxSwap }
+				}
+				if hx.HxBoost {
+					hx-boost="true"
+				}
+				if hx.HxPushUrl {
+					hx-push-url="true"
+				}
+			>{ text }</a>
+		</li>
+	}
+}
+
+templ HxTabLinkIcon(text, fontAwesomeIcon string, isActive bool, hx HtmxProperties) {
+	if isActive {
+		<li class="is-active">
+			<a
+				if hx.HxGet != "" {
+					hx-get={ hx.HxGet }
+				}
+				if hx.HxPost != "" {
+					hx-post={ hx.HxPost }
+				}
+				if hx.HxTrigger != "" {
+					hx-trigger={ hx.HxTrigger }
+				}
+				if hx.HxTarget != "" {
+					hx-target={ hx.HxTarget }
+				}
+				if hx.HxSwap != "" {
+					hx-swap={ hx.HxSwap }
+				}
+				if hx.HxBoost {
+					hx-boost="true"
+				}
+				if hx.HxPushUrl {
+					hx-push-url="true"
+				}
+			>
+				<span class="icon is-small">
+					<i class={ "fas", fontAwesomeIcon } aria-hidden="true"></i>
+				</span>
+				<span>{ text }</span>
+			</a>
+		</li>
+	} else {
+		<li>
+			<a
+				if hx.HxGet != "" {
+					hx-get={ hx.HxGet }
+				}
+				if hx.HxPost != "" {
+					hx-post={ hx.HxPost }
+				}
+				if hx.HxTrigger != "" {
+					hx-trigger={ hx.HxTrigger }
+				}
+				if hx.HxTarget != "" {
+					hx-target={ hx.HxTarget }
+				}
+				if hx.HxSwap != "" {
+					hx-swap={ hx.HxSwap }
+				}
+				if hx.HxBoost {
+					hx-boost="true"
+				}
+				if hx.HxPushUrl {
+					hx-push-url="true"
+				}
+			>
+				<span class="icon is-small">
+					<i class={ "fas", fontAwesomeIcon } aria-hidden="true"></i>
+				</span>
+				<span>{ text }</span>
+			</a>
+		</li>
+	}
+}
