@@ -1,5 +1,7 @@
 package bulma
 
+import "strconv"
+
 // Bulma’s most basic spacer block.
 // Accepts Children
 //
@@ -35,6 +37,10 @@ templ ButtonNewTab(url, text, color, size string) {
 	<button type="button" class={ "button", color, size }>
 		<a href={ templ.SafeURL(url) } target="_blank" rel="noopener noreferrer">{ text }</a>
 	</button>
+}
+
+templ ButtonLink(url, text, color, size string) {
+	<a class={ "button", color, size } href={ templ.SafeURL(url) }>{ text }</a>
 }
 
 // https://bulma.io/documentation/elements/content/
@@ -99,13 +105,17 @@ templ Notification(message, color string) {
 }
 
 // https://bulma.io/documentation/elements/progress/
-templ ProgressBar(color, value, max string) {
-	<progress class={ "progress", color } value={ value } max={ max }>
-		{ value }%
+templ ProgressBar(color string, value, max int) {
+	<progress
+		class={ "progress", color }
+		if value != -1 {
+			value={ strconv.Itoa(value) }
+		}
+		max={ strconv.Itoa(max) }
+	>
+		{ strconv.Itoa(value) }%
 	</progress>
 }
-
-
 
 // Creates a <table> that accepts children
 //
@@ -115,7 +125,6 @@ templ NewTable(table ...string) {
 		{ children... }
 	</table>
 }
-
 
 // Creates a <thead> that accepts children.
 templ NewTableHeader() {
