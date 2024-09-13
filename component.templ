@@ -357,6 +357,12 @@ templ NewNavbarStart() {
 	</div>
 }
 
+templ NewNavbarEnd() {
+	<div class="navbar-end">
+		{ children... }
+	</div>
+}
+
 templ NewNavbarItemDropdown(text string) {
 	<div class="navbar-item has-dropdown is-hoverable">
 		<a class="navbar-link">{ text }</a>
