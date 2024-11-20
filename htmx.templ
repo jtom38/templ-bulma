@@ -259,3 +259,34 @@ templ HxTabLinkIcon(text, fontAwesomeIcon string, isActive bool, hx HtmxProperti
 		</li>
 	}
 }
+
+templ NewHxTableBody(hx HtmxProperties) {
+	<tbody
+		if hx.HxGet != "" {
+			hx-get={ hx.HxGet }
+		}
+		if hx.HxPost != "" {
+			hx-post={ hx.HxPost }
+		}
+		if hx.HxTrigger != "" {
+			hx-trigger={ hx.HxTrigger }
+		}
+		if hx.HxTarget != "" {
+			hx-target={ hx.HxTarget }
+		}
+		if hx.HxSwap != "" {
+			hx-swap={ hx.HxSwap }
+		}
+		if hx.HxBoost {
+			hx-boost="true"
+		}
+		if hx.HxPushUrl {
+			hx-push-url="true"
+		}
+		if hx.HxConfirm !="" {
+			hx-confirm={ hx.HxConfirm }
+		}
+	>
+		{ children... }
+	</tbody>
+}
