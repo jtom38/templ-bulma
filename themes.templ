@@ -1,0 +1,50 @@
+package bulma
+
+// Enables the page to use a different color palet based on the Catppuccin Mocha values.
+//
+// Add @bulma.UseThemeCatppuccinMocha() into your header.
+// You should be able to add this to any element but it works best as a global theme set in your html tag.
+// 
+// <html lang="en" class="theme-catppuccin-mocha">
+// 
+templ UseThemeCatppuccinMocha() {
+	<style>
+	[data-theme=dark],
+	.theme-catppuccin-mocha {
+		--bulma-primary-h: 170deg;
+  		--bulma-primary-s: 57%;
+  		--bulma-primary-l: 73%;
+		
+  		--bulma-link-h: 217deg;
+  		--bulma-link-s: 92%;
+  		--bulma-link-l: 76%;
+
+  		--bulma-info-h: 189deg;
+  		--bulma-info-s: 71%;
+  		--bulma-info-l: 73%;
+
+  		--bulma-success-h: 115deg;
+  		--bulma-success-s: 54%;
+  		--bulma-success-l: 76%;
+
+  		--bulma-warning-h: 23deg;
+  		--bulma-warning-s: 92%;
+  		--bulma-warning-l: 75%;
+
+  		--bulma-danger-h: 343deg;
+  		--bulma-danger-s: 81%;
+  		--bulma-danger-l: 75%;
+
+		--bulma-body-background-color: hsl(240, 21%, 15%);
+
+		/* Text color */
+		--bulma-body-color: hsl(226, 64%, 88%);
+		--bulma-hr-background-color: hsl(237, 16%, 23%);
+		--bulma-strong-color: hsl(228, 24%, 72%);
+
+		.svg-white{
+    		filter: invert(100%) sepia(7%) saturate(7435%) hue-rotate(230deg) brightness(111%) contrast(94%);
+		}
+	}
+	</style>
+}

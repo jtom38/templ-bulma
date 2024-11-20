@@ -1,9 +1,7 @@
 # templ-bulma
 
-## Status: Unstable
+## Status: Usable
 
-Feel free to use this as is, but somethings still might move around as I continue to improve the project.
-Please wait for the first release.
 
 ## Why
 
@@ -23,8 +21,11 @@ Any of the functions that are `New*` support having a templ child item.
 
 ## HTMX
 
-This has some HXMX features and I expect to add more.  
-Right now the form allows you to use a `hx-post` from the struct params that can be passed in.
+This has some HTMX features and I expect to add more.  
+
+All Htmx enabled functions are tagged with `Hx` in the name.
+If you find missing Htmx features please feel free to PR them.
+I will add more as I use them in my own project.
 
 ## Closing
 
