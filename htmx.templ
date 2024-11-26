@@ -24,6 +24,9 @@ templ HxButtonLink(color, size, text string, hx HtmxProperties) {
 		if hx.HxPushUrl {
 			hx-push-url="true"
 		}
+		if hx.HxConfirm !="" {
+			hx-confirm={ hx.HxConfirm }
+		}
 	>{ text }</a>
 }
 
@@ -52,8 +55,12 @@ templ NewHxContainer(breakpoint, id string, hx HtmxProperties) {
 		if hx.HxPushUrl {
 			hx-push-url="true"
 		}
-	>{ children... }
-</div>
+		if hx.HxConfirm !="" {
+			hx-confirm={ hx.HxConfirm }
+		}
+	>
+		{ children... }
+	</div>
 }
 
 templ HxDropdownMenuLink(text string, hx HtmxProperties) {
@@ -79,6 +86,9 @@ templ HxDropdownMenuLink(text string, hx HtmxProperties) {
 		}
 		if hx.HxPushUrl {
 			hx-push-url="true"
+		}
+		if hx.HxConfirm !="" {
+			hx-confirm={ hx.HxConfirm }
 		}
 	>{ text }</a>
 }
@@ -107,6 +117,9 @@ templ HxNavbarItem(text string, hx HtmxProperties) {
 		if hx.HxPushUrl {
 			hx-push-url="true"
 		}
+		if hx.HxConfirm !="" {
+			hx-confirm={ hx.HxConfirm }
+		}
 	>{ text }</a>
 }
 
@@ -132,6 +145,9 @@ templ HxLink(text string, hx HtmxProperties) {
 		}
 		if hx.HxPushUrl {
 			hx-push-url="true"
+		}
+		if hx.HxConfirm !="" {
+			hx-confirm={ hx.HxConfirm }
 		}
 	>
 		<span>{ text }</span>
@@ -163,6 +179,9 @@ templ HxTabLink(text string, isActive bool, hx HtmxProperties) {
 				if hx.HxPushUrl {
 					hx-push-url="true"
 				}
+				if hx.HxConfirm !="" {
+					hx-confirm={ hx.HxConfirm }
+				}
 			>{ text }</a>
 		</li>
 	} else {
@@ -188,6 +207,9 @@ templ HxTabLink(text string, isActive bool, hx HtmxProperties) {
 				}
 				if hx.HxPushUrl {
 					hx-push-url="true"
+				}
+				if hx.HxConfirm !="" {
+					hx-confirm={ hx.HxConfirm }
 				}
 			>{ text }</a>
 		</li>
@@ -219,6 +241,9 @@ templ HxTabLinkIcon(text, fontAwesomeIcon string, isActive bool, hx HtmxProperti
 				if hx.HxPushUrl {
 					hx-push-url="true"
 				}
+				if hx.HxConfirm !="" {
+					hx-confirm={ hx.HxConfirm }
+				}
 			>
 				<span class="icon is-small">
 					<i class={ "fas", fontAwesomeIcon } aria-hidden="true"></i>
@@ -249,6 +274,9 @@ templ HxTabLinkIcon(text, fontAwesomeIcon string, isActive bool, hx HtmxProperti
 				}
 				if hx.HxPushUrl {
 					hx-push-url="true"
+				}
+				if hx.HxConfirm !="" {
+					hx-confirm={ hx.HxConfirm }
 				}
 			>
 				<span class="icon is-small">
