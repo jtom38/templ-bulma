@@ -24,7 +24,7 @@ templ HxButtonLink(color, size, text string, hx HtmxProperties) {
 		if hx.HxPushUrl {
 			hx-push-url="true"
 		}
-		if hx.HxConfirm !="" {
+		if hx.HxConfirm != "" {
 			hx-confirm={ hx.HxConfirm }
 		}
 	>{ text }</a>
@@ -37,8 +37,17 @@ templ NewHxContainer(breakpoint, id string, hx HtmxProperties) {
 		if hx.HxGet != "" {
 			hx-get={ hx.HxGet }
 		}
+		if hx.HxPut != "" {
+			hx-put={ hx.HxPut }
+		}
 		if hx.HxPost != "" {
 			hx-post={ hx.HxPost }
+		}
+		if hx.HxPatch != "" {
+			hx-post={ hx.HxPatch }
+		}
+		if hx.HxDelete != "" {
+			hx-post={ hx.HxDelete }
 		}
 		if hx.HxTrigger != "" {
 			hx-trigger={ hx.HxTrigger }
@@ -55,7 +64,7 @@ templ NewHxContainer(breakpoint, id string, hx HtmxProperties) {
 		if hx.HxPushUrl {
 			hx-push-url="true"
 		}
-		if hx.HxConfirm !="" {
+		if hx.HxConfirm != "" {
 			hx-confirm={ hx.HxConfirm }
 		}
 	>
@@ -69,8 +78,17 @@ templ HxDropdownMenuLink(text string, hx HtmxProperties) {
 		if hx.HxGet != "" {
 			hx-get={ hx.HxGet }
 		}
+		if hx.HxPut != "" {
+			hx-put={ hx.HxPut }
+		}
 		if hx.HxPost != "" {
 			hx-post={ hx.HxPost }
+		}
+		if hx.HxPatch != "" {
+			hx-post={ hx.HxPatch }
+		}
+		if hx.HxDelete != "" {
+			hx-post={ hx.HxDelete }
 		}
 		if hx.HxTrigger != "" {
 			hx-trigger={ hx.HxTrigger }
@@ -99,8 +117,17 @@ templ HxNavbarItem(text string, hx HtmxProperties) {
 		if hx.HxGet != "" {
 			hx-get={ hx.HxGet }
 		}
+		if hx.HxPut != "" {
+			hx-put={ hx.HxPut }
+		}
 		if hx.HxPost != "" {
 			hx-post={ hx.HxPost }
+		}
+		if hx.HxPatch != "" {
+			hx-post={ hx.HxPatch }
+		}
+		if hx.HxDelete != "" {
+			hx-post={ hx.HxDelete }
 		}
 		if hx.HxTrigger != "" {
 			hx-trigger={ hx.HxTrigger }
@@ -128,8 +155,17 @@ templ HxLink(text string, hx HtmxProperties) {
 		if hx.HxGet != "" {
 			hx-get={ hx.HxGet }
 		}
+		if hx.HxPut != "" {
+			hx-put={ hx.HxPut }
+		}
 		if hx.HxPost != "" {
 			hx-post={ hx.HxPost }
+		}
+		if hx.HxPatch != "" {
+			hx-post={ hx.HxPatch }
+		}
+		if hx.HxDelete != "" {
+			hx-post={ hx.HxDelete }
 		}
 		if hx.HxTrigger != "" {
 			hx-trigger={ hx.HxTrigger }
@@ -161,8 +197,17 @@ templ HxTabLink(text string, isActive bool, hx HtmxProperties) {
 				if hx.HxGet != "" {
 					hx-get={ hx.HxGet }
 				}
+				if hx.HxPut != "" {
+					hx-put={ hx.HxPut }
+				}
 				if hx.HxPost != "" {
 					hx-post={ hx.HxPost }
+				}
+				if hx.HxPatch != "" {
+					hx-post={ hx.HxPatch }
+				}
+				if hx.HxDelete != "" {
+					hx-post={ hx.HxDelete }
 				}
 				if hx.HxTrigger != "" {
 					hx-trigger={ hx.HxTrigger }
@@ -190,8 +235,17 @@ templ HxTabLink(text string, isActive bool, hx HtmxProperties) {
 				if hx.HxGet != "" {
 					hx-get={ hx.HxGet }
 				}
+				if hx.HxPut != "" {
+					hx-put={ hx.HxPut }
+				}
 				if hx.HxPost != "" {
 					hx-post={ hx.HxPost }
+				}
+				if hx.HxPatch != "" {
+					hx-post={ hx.HxPatch }
+				}
+				if hx.HxDelete != "" {
+					hx-post={ hx.HxDelete }
 				}
 				if hx.HxTrigger != "" {
 					hx-trigger={ hx.HxTrigger }
@@ -223,8 +277,17 @@ templ HxTabLinkIcon(text, fontAwesomeIcon string, isActive bool, hx HtmxProperti
 				if hx.HxGet != "" {
 					hx-get={ hx.HxGet }
 				}
+				if hx.HxPut != "" {
+					hx-put={ hx.HxPut }
+				}
 				if hx.HxPost != "" {
 					hx-post={ hx.HxPost }
+				}
+				if hx.HxPatch != "" {
+					hx-post={ hx.HxPatch }
+				}
+				if hx.HxDelete != "" {
+					hx-post={ hx.HxDelete }
 				}
 				if hx.HxTrigger != "" {
 					hx-trigger={ hx.HxTrigger }
@@ -257,8 +320,17 @@ templ HxTabLinkIcon(text, fontAwesomeIcon string, isActive bool, hx HtmxProperti
 				if hx.HxGet != "" {
 					hx-get={ hx.HxGet }
 				}
+				if hx.HxPut != "" {
+					hx-put={ hx.HxPut }
+				}
 				if hx.HxPost != "" {
 					hx-post={ hx.HxPost }
+				}
+				if hx.HxPatch != "" {
+					hx-post={ hx.HxPatch }
+				}
+				if hx.HxDelete != "" {
+					hx-post={ hx.HxDelete }
 				}
 				if hx.HxTrigger != "" {
 					hx-trigger={ hx.HxTrigger }
@@ -293,8 +365,17 @@ templ NewHxTableBody(hx HtmxProperties) {
 		if hx.HxGet != "" {
 			hx-get={ hx.HxGet }
 		}
+		if hx.HxPut != "" {
+			hx-put={ hx.HxPut }
+		}
 		if hx.HxPost != "" {
 			hx-post={ hx.HxPost }
+		}
+		if hx.HxPatch != "" {
+			hx-post={ hx.HxPatch }
+		}
+		if hx.HxDelete != "" {
+			hx-post={ hx.HxDelete }
 		}
 		if hx.HxTrigger != "" {
 			hx-trigger={ hx.HxTrigger }

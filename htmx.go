@@ -16,7 +16,18 @@ type HtmxProperties struct {
 	// https://htmx.org/attributes/hx-get/
 	HxGet string
 
-	HxPost    string
+	// https://htmx.org/attributes/hx-post/
+	HxPost string
+
+	// https://htmx.org/attributes/hx-put/
+	HxPut string
+
+	// https://htmx.org/attributes/hx-patch/
+	HxPatch string
+
+	// https://htmx.org/attributes/hx-delete/
+	HxDelete string
+
 	HxTrigger string
 	HxTarget  string
 	HxSwap    string
